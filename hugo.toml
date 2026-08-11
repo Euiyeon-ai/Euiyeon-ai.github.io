@@ -1,0 +1,106 @@
+baseURL = "https://euiyeon-ai.github.io/"
+title = "Euiyeon 블로그"
+theme = "PaperMod"
+
+locale = "ko-kr"
+defaultContentLanguage = "ko"
+hasCJKLanguage = true
+
+enableRobotsTXT = true
+enableEmoji = true
+buildDrafts = false
+buildFuture = false
+summaryLength = 40
+
+# 글 주소 = /posts/<slug>/ 로 고정
+[permalinks]
+  posts = "/posts/:slug/"
+
+[pagination]
+  pagerSize = 10
+
+# 검색 기능에 필요한 JSON 인덱스 생성
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[minify]
+  disableXML = true
+
+[params]
+  env = "production"
+  title = "Euiyeon 블로그"
+  description = "블로그 설명 자리"
+  author = "Euiyeon"
+  defaultTheme = "auto"          # auto | light | dark
+  DateFormat = "2006-01-02"
+
+  ShowReadingTime = true
+  ShowWordCount = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowShareButtons = false
+  ShowRssButtonInSectionTermList = true
+  disableScrollToTop = false
+  hideMeta = false
+
+  ShowToc = true
+  TocOpen = false
+
+  [params.homeInfoParams]
+    Title = "안녕하세요 👋"
+    Content = "여기에 자기소개 한두 줄."
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/Euiyeon-ai"
+
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
+
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
+
+[[menu.main]]
+  identifier = "posts"
+  name = "글"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "archives"
+  name = "아카이브"
+  url = "/archives/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "tags"
+  name = "태그"
+  url = "/tags/"
+  weight = 30
+
+[[menu.main]]
+  identifier = "search"
+  name = "검색"
+  url = "/search/"
+  weight = 40
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    style = "monokai"
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
