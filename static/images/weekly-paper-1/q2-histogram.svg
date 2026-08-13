@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 352" width="720" height="352" role="img" aria-labelledby="t1 d1">
+  <title id="t1">구매금액 구간별 인원 분포</title>
+  <desc id="d1">고객 10명 중 7명이 0~4만원 구간에 몰려 있고, 5~9만원 2명, 20~24만원에 1명이 떨어져 있다. 평균 5만원 근처에는 사람이 거의 없다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .lbl{fill:#0b0b0b;font-size:13px}
+    .val{fill:#0b0b0b;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+    .sub{fill:#52514e;font-size:12.5px}
+    .mut{fill:#898781;font-size:12px}
+    .ax{stroke:#c3c2b7;stroke-width:1.5}
+    .b1{fill:#2a78d6}
+    .b2{fill:#eb6834}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.lbl,.val{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .ax{stroke:#383835}
+      .b1{fill:#3987e5}
+      .b2{fill:#d95926}
+    }
+  </style>
+  <rect class="bg" x=".5" y=".5" width="719" height="351" rx="10"/>
+
+  <text class="ttl" x="24" y="30">구매금액 구간별 인원 — 고객 10명</text>
+  <text class="mut" x="24" y="50">막대 1칸 = 1명</text>
+
+  <line class="ax" x1="124" y1="66" x2="124" y2="286"/>
+
+  <!-- 0~4만원 : 7명 -->
+  <text class="lbl" x="112" y="94" text-anchor="end">0 ~ 4만원</text>
+  <rect class="b1" x="124" y="77" width="280" height="22" rx="4"/>
+  <text class="val" x="414" y="94">7명</text>
+  <text class="sub" x="462" y="94">중앙값 2.5만원 — 사람은 여기 몰림</text>
+
+  <!-- 5~9만원 : 2명 -->
+  <text class="lbl" x="112" y="138" text-anchor="end">5 ~ 9만원</text>
+  <rect class="b1" x="124" y="121" width="80" height="22" rx="4"/>
+  <text class="val" x="214" y="138">2명</text>
+  <text class="sub" x="462" y="138">평균 5.0만원 — 정작 이 근처엔 1명뿐</text>
+
+  <!-- 10~14만원 : 0명 -->
+  <text class="lbl" x="112" y="182" text-anchor="end">10 ~ 14만원</text>
+  <line class="ax" x1="124" y1="177" x2="132" y2="177"/>
+  <text class="mut" x="142" y="182">0명</text>
+
+  <!-- 15~19만원 : 0명 -->
+  <text class="lbl" x="112" y="226" text-anchor="end">15 ~ 19만원</text>
+  <line class="ax" x1="124" y1="221" x2="132" y2="221"/>
+  <text class="mut" x="142" y="226">0명</text>
+
+  <!-- 20~24만원 : 1명 -->
+  <text class="lbl" x="112" y="270" text-anchor="end">20 ~ 24만원</text>
+  <rect class="b2" x="124" y="253" width="40" height="22" rx="4"/>
+  <text class="val" x="174" y="270">1명</text>
+  <text class="sub" x="462" y="270">이 1명이 전체 매출의 46%</text>
+
+  <line class="ax" x1="24" y1="304" x2="696" y2="304"/>
+
+  <rect class="b1" x="24" y="322" width="12" height="12" rx="3"/>
+  <text class="sub" x="44" y="332">보통 고객 9명</text>
+  <rect class="b2" x="156" y="322" width="12" height="12" rx="3"/>
+  <text class="sub" x="176" y="332">고액 고객 1명</text>
+  <text class="mut" x="696" y="332" text-anchor="end">합계 50만원 · 평균 5.0만원 · 중앙값 2.5만원</text>
+</svg>

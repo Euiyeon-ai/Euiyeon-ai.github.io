@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720" height="300" role="img" aria-labelledby="t5 d5">
+  <title id="t5">중복을 먼저 정리하지 않으면 생기는 행 폭발</title>
+  <desc id="d5">양쪽에 같은 ID가 2행씩 있으면 합칠 때 2×2로 4행이 되고 매출 합계가 8만에서 16만으로 두 배가 된다. 중복을 먼저 정리하면 1행, 합계는 그대로다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:14px;font-weight:700}
+    .lbl{fill:#0b0b0b;font-size:13px;font-variant-numeric:tabular-nums}
+    .sub{fill:#52514e;font-size:12.5px}
+    .mut{fill:#898781;font-size:12px}
+    .tbl{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.5}
+    .rule{stroke:#c3c2b7;stroke-width:1}
+    .div{stroke:#e1e0d9;stroke-width:1.5}
+    .fl{stroke:#c3c2b7;stroke-width:1.8;fill:none}
+    .arh{fill:#c3c2b7}
+    .bad{fill:#d03b3b}
+    .good{fill:#006300}
+    .boxBad{fill:#fbeaea;stroke:#d03b3b;stroke-width:2}
+    .boxGood{fill:#e8f5e8;stroke:#0ca30c;stroke-width:2}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h,.lbl{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .tbl{fill:#232322;stroke:#383835}
+      .rule{stroke:#383835}
+      .div{stroke:#2c2c2a}
+      .fl{stroke:#383835}
+      .arh{fill:#383835}
+      .good{fill:#0ca30c}
+      .boxBad{fill:#331717;stroke:#d03b3b}
+      .boxGood{fill:#122b12;stroke:#0ca30c}
+    }
+  </style>
+  <defs>
+    <marker id="a5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="arh" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+  <rect class="bg" x=".5" y=".5" width="719" height="299" rx="10"/>
+  <text class="ttl" x="24" y="30">왜 중복을 합치기 전에 정리하는가 — 행 폭발</text>
+  <line class="div" x1="360" y1="48" x2="360" y2="276"/>
+
+  <!-- 왼쪽: 정리 안 하고 합치면 -->
+  <text class="h bad" x="24" y="70">✕ 정리 안 하고 합치면</text>
+
+  <rect class="tbl" x="48" y="86" width="112" height="56" rx="6"/>
+  <line class="rule" x1="48" y1="114" x2="160" y2="114"/>
+  <text class="lbl" x="58" y="106">C001</text><text class="lbl" x="150" y="106" text-anchor="end">5만</text>
+  <text class="lbl" x="58" y="134">C001</text><text class="lbl" x="150" y="134" text-anchor="end">5만</text>
+  <text class="mut" x="104" y="158" text-anchor="middle">A팀 2행</text>
+
+  <text class="h" x="176" y="120" text-anchor="middle">×</text>
+
+  <rect class="tbl" x="192" y="86" width="112" height="56" rx="6"/>
+  <line class="rule" x1="192" y1="114" x2="304" y2="114"/>
+  <text class="lbl" x="202" y="106">C001</text><text class="lbl" x="294" y="106" text-anchor="end">3만</text>
+  <text class="lbl" x="202" y="134">C001</text><text class="lbl" x="294" y="134" text-anchor="end">3만</text>
+  <text class="mut" x="248" y="158" text-anchor="middle">B팀 2행</text>
+
+  <path class="fl" d="M176,166 V186" marker-end="url(#a5)"/>
+  <rect class="boxBad" x="48" y="188" width="256" height="60" rx="8"/>
+  <text class="h" x="176" y="212" text-anchor="middle">2 × 2 = 4행</text>
+  <text class="sub bad" x="176" y="234" text-anchor="middle">매출 8만 → 16만 (2배 뻥튀기)</text>
+  <text class="mut" x="48" y="270">합친 뒤엔 어디서 불어났는지 못 찾는다</text>
+
+  <!-- 오른쪽: 중복 먼저 정리하면 -->
+  <text class="h good" x="392" y="70">✓ 중복 먼저 정리하면</text>
+
+  <rect class="tbl" x="416" y="100" width="112" height="28" rx="6"/>
+  <text class="lbl" x="426" y="120">C001</text><text class="lbl" x="518" y="120" text-anchor="end">5만</text>
+  <text class="mut" x="472" y="146" text-anchor="middle">A팀 1행</text>
+
+  <text class="h" x="544" y="120" text-anchor="middle">×</text>
+
+  <rect class="tbl" x="560" y="100" width="112" height="28" rx="6"/>
+  <text class="lbl" x="570" y="120">C001</text><text class="lbl" x="662" y="120" text-anchor="end">3만</text>
+  <text class="mut" x="616" y="146" text-anchor="middle">B팀 1행</text>
+
+  <path class="fl" d="M544,166 V186" marker-end="url(#a5)"/>
+  <rect class="boxGood" x="416" y="188" width="256" height="60" rx="8"/>
+  <text class="h" x="544" y="212" text-anchor="middle">1행</text>
+  <text class="sub good" x="544" y="234" text-anchor="middle">매출 8만 그대로</text>
+  <text class="mut" x="392" y="270">고객 수·합계가 원본과 맞는다</text>
+</svg>

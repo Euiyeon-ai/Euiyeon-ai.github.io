@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 306" width="720" height="306" role="img" aria-labelledby="t6 d6">
+  <title id="t6">결측치를 합친 뒤에 채우는 이유</title>
+  <desc id="d6">합치기 전에 '미상'으로 채우면 그 가짜 값이 자리를 차지해 B팀의 진짜 값이 들어오지 못한다. 먼저 합치면 상대 팀 값으로 빈칸이 채워진다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:14px;font-weight:700}
+    .lbl{fill:#0b0b0b;font-size:13px}
+    .sub{fill:#52514e;font-size:12.5px}
+    .mut{fill:#898781;font-size:12px}
+    .row{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.5}
+    .cell{stroke:#c3c2b7;stroke-width:1}
+    .div{stroke:#e1e0d9;stroke-width:1.5}
+    .fl{stroke:#c3c2b7;stroke-width:1.8;fill:none}
+    .arh{fill:#c3c2b7}
+    .bad{fill:#d03b3b}
+    .good{fill:#006300}
+    .boxBad{fill:#fbeaea;stroke:#d03b3b;stroke-width:2}
+    .boxGood{fill:#e8f5e8;stroke:#0ca30c;stroke-width:2}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h,.lbl{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .row{fill:#232322;stroke:#383835}
+      .cell{stroke:#383835}
+      .div{stroke:#2c2c2a}
+      .fl{stroke:#383835}
+      .arh{fill:#383835}
+      .good{fill:#0ca30c}
+      .boxBad{fill:#331717;stroke:#d03b3b}
+      .boxGood{fill:#122b12;stroke:#0ca30c}
+    }
+  </style>
+  <defs>
+    <marker id="a6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="arh" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+  <rect class="bg" x=".5" y=".5" width="719" height="305" rx="10"/>
+  <text class="ttl" x="24" y="30">왜 결측치는 합친 뒤에 채우는가 — 진짜 값 덮어쓰기</text>
+  <line class="div" x1="360" y1="48" x2="360" y2="282"/>
+
+  <!-- 왼쪽: 먼저 채우면 -->
+  <text class="h bad" x="24" y="70">✕ 합치기 전에 채우면</text>
+
+  <rect class="row" x="48" y="84" width="256" height="34" rx="6"/>
+  <line class="cell" x1="108" y1="84" x2="108" y2="118"/>
+  <line class="cell" x1="178" y1="84" x2="178" y2="118"/>
+  <text class="mut" x="62" y="106">A팀</text>
+  <text class="lbl" x="122" y="106">C001</text>
+  <text class="mut" x="192" y="106">(빈칸)</text>
+
+  <path class="fl" d="M72,118 V142" marker-end="url(#a6)"/>
+  <text class="sub" x="88" y="135">'미상'으로 채움</text>
+
+  <rect class="row" x="48" y="144" width="256" height="34" rx="6"/>
+  <line class="cell" x1="108" y1="144" x2="108" y2="178"/>
+  <line class="cell" x1="178" y1="144" x2="178" y2="178"/>
+  <text class="mut" x="62" y="166">A팀</text>
+  <text class="lbl" x="122" y="166">C001</text>
+  <text class="lbl bad" x="192" y="166">미상</text>
+
+  <path class="fl" d="M72,178 V202" marker-end="url(#a6)"/>
+  <text class="sub" x="88" y="195">B팀과 합침</text>
+
+  <rect class="boxBad" x="48" y="204" width="256" height="34" rx="6"/>
+  <line class="cell" x1="108" y1="204" x2="108" y2="238"/>
+  <line class="cell" x1="178" y1="204" x2="178" y2="238"/>
+  <text class="mut" x="62" y="226">결과</text>
+  <text class="lbl" x="122" y="226">C001</text>
+  <text class="lbl bad" x="192" y="226">미상</text>
+
+  <text class="sub bad" x="48" y="264">가짜 값이 자리를 차지해 진짜 값이 못 들어온다</text>
+
+  <!-- 오른쪽: 합친 뒤 채우면 -->
+  <text class="h good" x="392" y="70">✓ 합친 뒤에 채우면</text>
+
+  <rect class="row" x="392" y="84" width="256" height="34" rx="6"/>
+  <line class="cell" x1="452" y1="84" x2="452" y2="118"/>
+  <line class="cell" x1="522" y1="84" x2="522" y2="118"/>
+  <text class="mut" x="406" y="106">A팀</text>
+  <text class="lbl" x="466" y="106">C001</text>
+  <text class="mut" x="536" y="106">(빈칸)</text>
+
+  <path class="fl" d="M416,118 V142" marker-end="url(#a6)"/>
+  <text class="sub" x="432" y="135">먼저 합침</text>
+
+  <rect class="row" x="392" y="144" width="256" height="34" rx="6"/>
+  <line class="cell" x1="452" y1="144" x2="452" y2="178"/>
+  <line class="cell" x1="522" y1="144" x2="522" y2="178"/>
+  <text class="mut" x="406" y="166">합침</text>
+  <text class="lbl" x="466" y="166">C001</text>
+  <text class="mut" x="536" y="166">(빈칸)</text>
+
+  <path class="fl" d="M416,178 V202" marker-end="url(#a6)"/>
+  <text class="sub" x="432" y="195">B팀에 값이 있다 → 그 값으로 채움</text>
+
+  <rect class="boxGood" x="392" y="204" width="256" height="34" rx="6"/>
+  <line class="cell" x1="452" y1="204" x2="452" y2="238"/>
+  <line class="cell" x1="522" y1="204" x2="522" y2="238"/>
+  <text class="mut" x="406" y="226">결과</text>
+  <text class="lbl" x="466" y="226">C001</text>
+  <text class="lbl good" x="534" y="226">010-1234-5678</text>
+
+  <text class="sub good" x="392" y="264">그래도 남은 빈칸만 이유별로 처리한다</text>
+</svg>

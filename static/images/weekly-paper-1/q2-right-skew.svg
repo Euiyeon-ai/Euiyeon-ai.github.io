@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 384" width="720" height="384" role="img" aria-labelledby="t3 d3">
+  <title id="t3">오른쪽으로 치우친 분포</title>
+  <desc id="d3">봉우리는 왼쪽에 있고 꼬리만 오른쪽으로 길게 뻗은 분포. 최빈값 2만원, 중앙값 2.5만원, 평균 5만원 순으로 벌어지며 평균이 꼬리 쪽으로 끌려간다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .lbl{fill:#0b0b0b;font-size:13px}
+    .key{fill:#0b0b0b;font-size:13px;font-weight:700}
+    .sub{fill:#52514e;font-size:12.5px}
+    .mut{fill:#898781;font-size:12px}
+    .ax{stroke:#c3c2b7;stroke-width:1.5;fill:none}
+    .arh{fill:#c3c2b7}
+    .curve{stroke:#2a78d6;stroke-width:2.5;fill:none;stroke-linejoin:round}
+    .area{fill:#2a78d6;fill-opacity:.14}
+    .lead{stroke:#898781;stroke-width:1.5;fill:none}
+    .mMode{stroke:#898781}
+    .mMed{stroke:#1baf7a}
+    .mMean{stroke:#eb6834}
+    .mark{stroke-width:2;stroke-dasharray:5 4}
+    .cMode{fill:#898781}
+    .cMed{fill:#1baf7a}
+    .cMean{fill:#eb6834}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.lbl,.key{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .ax{stroke:#383835}
+      .arh{fill:#383835}
+      .curve{stroke:#3987e5}
+      .area{fill:#3987e5}
+      .mMed{stroke:#199e70}
+      .mMean{stroke:#d95926}
+      .cMed{fill:#199e70}
+      .cMean{fill:#d95926}
+    }
+  </style>
+  <defs>
+    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="arh" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+  <rect class="bg" x=".5" y=".5" width="719" height="383" rx="10"/>
+
+  <text class="ttl" x="24" y="30">오른쪽으로 치우친 분포 — 최빈값 &lt; 중앙값 &lt; 평균</text>
+
+  <text class="mut" x="70" y="50">고객 수</text>
+  <path class="ax" d="M70,252 V64" marker-end="url(#a3)"/>
+  <path class="ax" d="M70,252 H676" marker-end="url(#a3)"/>
+  <text class="mut" x="670" y="272" text-anchor="end">구매금액</text>
+
+  <path class="area" d="M80,250 C112,247 134,82 172,82 C208,82 226,142 260,180 C302,226 352,240 420,246 C520,252 592,251 666,251 L666,252 L80,252 Z"/>
+  <path class="curve" d="M80,250 C112,247 134,82 172,82 C208,82 226,142 260,180 C302,226 352,240 420,246 C520,252 592,251 666,251"/>
+
+  <line class="mark mMode" x1="172" y1="82" x2="172" y2="252"/>
+  <line class="mark mMed" x1="214" y1="128" x2="214" y2="252"/>
+  <line class="mark mMean" x1="282" y1="196" x2="282" y2="252"/>
+
+  <circle class="cMode" cx="172" cy="82" r="4.5"/>
+  <circle class="cMed" cx="214" cy="128" r="4.5"/>
+  <circle class="cMean" cx="282" cy="196" r="4.5"/>
+
+  <path class="lead" d="M258,64 L186,76" marker-end="url(#a3)"/>
+  <text class="lbl" x="266" y="68">봉우리(사람이 몰린 곳)는 왼쪽</text>
+
+  <path class="lead" d="M448,214 C520,224 600,238 646,247" marker-end="url(#a3)"/>
+  <text class="lbl" x="442" y="208" text-anchor="end">꼬리는 오른쪽으로 길게</text>
+
+  <rect class="cMode" x="70" y="292" width="12" height="12" rx="3"/>
+  <text class="key" x="90" y="302">최빈값 2만원</text>
+  <text class="sub" x="192" y="302">가장 흔한 금액 — 봉우리 자리</text>
+
+  <rect class="cMed" x="70" y="320" width="12" height="12" rx="3"/>
+  <text class="key" x="90" y="330">중앙값 2.5만원</text>
+  <text class="sub" x="192" y="330">줄 세운 순서만 본다 — 큰 값에 안 흔들린다</text>
+
+  <rect class="cMean" x="70" y="348" width="12" height="12" rx="3"/>
+  <text class="key" x="90" y="358">평균 5.0만원</text>
+  <text class="sub" x="192" y="358">금액을 다 더해서 나눈다 — 긴 꼬리에 끌려 오른쪽으로 밀린다</text>
+</svg>

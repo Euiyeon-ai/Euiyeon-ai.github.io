@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" width="720" height="320" role="img" aria-labelledby="t2 d2">
+  <title id="t2">좌우 대칭 분포</title>
+  <desc id="d2">봉우리가 가운데 있고 좌우가 같은 종 모양 분포. 최빈값, 중앙값, 평균이 한 점에 겹친다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .sub{fill:#52514e;font-size:12.5px}
+    .mut{fill:#898781;font-size:12px}
+    .ax{stroke:#c3c2b7;stroke-width:1.5;fill:none}
+    .arh{fill:#c3c2b7}
+    .curve{stroke:#2a78d6;stroke-width:2.5;fill:none;stroke-linejoin:round}
+    .area{fill:#2a78d6;fill-opacity:.14}
+    .mark{stroke:#0b0b0b;stroke-width:1.5;stroke-dasharray:5 4}
+    .dot{fill:#0b0b0b}
+    .key{fill:#0b0b0b;font-size:13px;font-weight:700}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.key{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .ax{stroke:#383835}
+      .arh{fill:#383835}
+      .curve{stroke:#3987e5}
+      .area{fill:#3987e5}
+      .mark{stroke:#ffffff}
+      .dot{fill:#ffffff}
+    }
+  </style>
+  <defs>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="arh" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+  <rect class="bg" x=".5" y=".5" width="719" height="319" rx="10"/>
+
+  <text class="ttl" x="24" y="30">좌우 대칭 분포 — 평균이 보통 고객을 대표한다</text>
+
+  <text class="mut" x="70" y="50">고객 수</text>
+  <path class="ax" d="M70,232 V64" marker-end="url(#a2)"/>
+  <path class="ax" d="M70,232 H676" marker-end="url(#a2)"/>
+  <text class="mut" x="670" y="252" text-anchor="end">구매금액</text>
+
+  <path class="area" d="M80,231 C220,227 300,74 373,74 C446,74 526,227 666,231 L666,232 L80,232 Z"/>
+  <path class="curve" d="M80,231 C220,227 300,74 373,74 C446,74 526,227 666,231"/>
+
+  <line class="mark" x1="373" y1="74" x2="373" y2="232"/>
+  <circle class="dot" cx="373" cy="74" r="4.5"/>
+
+  <text class="key" x="373" y="266" text-anchor="middle">최빈값 = 중앙값 = 평균</text>
+  <text class="sub" x="373" y="288" text-anchor="middle">세 값이 한 점에 겹친다 — 이럴 때는 "다들 이 정도 쓴다"고 말해도 된다</text>
+</svg>
