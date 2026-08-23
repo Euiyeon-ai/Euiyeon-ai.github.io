@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720" height="300" role="img" aria-labelledby="t7 d7">
+  <title id="t7">Epoch 단위 로그와 batch 단위 로그의 차이</title>
+  <desc id="d7">Epoch 단위로 찍으면 loss가 nan이라는 한 줄만 남아 언제부터 문제가 시작됐는지 알 수 없다. Batch 단위로 찍으면 loss가 여러 배씩 커지는 계단이 그대로 보여서 발산인지 특정 batch에서의 급변인지 구분할 수 있다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:14px;font-weight:700}
+    .mono{fill:#0b0b0b;font-size:12.5px;font-family:ui-monospace,Consolas,monospace}
+    .sub{fill:#52514e;font-size:12.5px}
+    .mut{fill:#898781;font-size:12px}
+    .pane{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.5}
+    .div{stroke:#e1e0d9;stroke-width:1.5}
+    .bad{fill:#d03b3b}
+    .good{fill:#006300}
+    .boxBad{fill:#fbeaea;stroke:#d03b3b;stroke-width:2}
+    .boxGood{fill:#e8f5e8;stroke:#0ca30c;stroke-width:2}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h,.mono{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .pane{fill:#232322;stroke:#383835}
+      .div{stroke:#2c2c2a}
+      .good{fill:#0ca30c}
+      .boxBad{fill:#331717;stroke:#d03b3b}
+      .boxGood{fill:#122b12;stroke:#0ca30c}
+    }
+  </style>
+  <rect class="bg" x=".5" y=".5" width="719" height="299" rx="10"/>
+  <text class="ttl" x="24" y="30">같은 학습, 어느 단위로 찍느냐에 따라 보이는 것</text>
+  <line class="div" x1="360" y1="48" x2="360" y2="276"/>
+
+  <!-- 왼쪽: epoch 단위 -->
+  <text class="h bad" x="24" y="72">✕ epoch 단위로 찍으면</text>
+  <text class="mut" x="24" y="92">전체 데이터를 한 바퀴 돌 때마다 한 줄</text>
+  <rect class="pane" x="24" y="106" width="304" height="52" rx="8"/>
+  <text class="mono" x="44" y="138">ep 0   loss = nan</text>
+  <rect class="boxBad" x="24" y="176" width="304" height="72" rx="8"/>
+  <text class="h bad" x="176" y="204" text-anchor="middle">언제부터 망가졌는지 알 수 없다</text>
+  <text class="sub" x="176" y="228" text-anchor="middle">한 epoch 안의 batch 수십 번이 이 한 줄에 삼켜진다</text>
+  <text class="mut" x="24" y="270">그래서 "갑자기 NaN이 됐다"처럼 보인다</text>
+
+  <!-- 오른쪽: batch 단위 -->
+  <text class="h good" x="392" y="72">✓ batch 단위로 찍으면</text>
+  <text class="mut" x="392" y="92">작은 묶음 하나를 학습할 때마다 한 줄</text>
+  <rect class="pane" x="392" y="106" width="304" height="142" rx="8"/>
+  <text class="mono" x="412" y="126">batch 0   loss =      6.087</text>
+  <text class="mono" x="412" y="144">batch 1   loss =        160</text>
+  <text class="mono" x="412" y="162">batch 2   loss =  5.244e+04</text>
+  <text class="mono" x="412" y="180">batch 3   loss =  7.901e+12</text>
+  <text class="mono" x="412" y="198">batch 4   loss =  1.603e+37</text>
+  <text class="mono" x="412" y="216">batch 5   loss = 9.101e+109</text>
+  <text class="mono bad" x="412" y="236">batch 6   loss =        nan</text>
+  <text class="sub good" x="392" y="270">계단이 보인다 → 발산인지, 특정 batch 사고인지 구분 가능</text>
+</svg>

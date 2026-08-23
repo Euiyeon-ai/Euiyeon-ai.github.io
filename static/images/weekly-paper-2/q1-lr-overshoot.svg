@@ -73,5 +73,5 @@
   <text class="sub bad" x="686" y="76" text-anchor="end">화면 밖으로 →</text>
 
   <text class="sub bad" x="408" y="278">건너뛴 자리가 더 가파르다 → 다음 걸음은 더 크다</text>
-  <text class="mut" x="408" y="298">한 번 튈 때마다 곱절로 커진다 → 6걸음 만에 1e308 초과</text>
+  <text class="mut" x="408" y="298">한 번 튈 때마다 몇 배씩 커진다 → 몇 걸음 만에 발산</text>
 </svg>

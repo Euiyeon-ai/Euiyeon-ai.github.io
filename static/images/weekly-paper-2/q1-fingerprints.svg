@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720" height="300" role="img" aria-labelledby="t3 d3">
-  <title id="t3">NaN 원인별 loss 곡선의 지문 세 가지</title>
-  <desc id="d3">발산형은 loss가 계단처럼 곱절로 커지다가 죽고, 즉사형은 정상적으로 줄어들다가 커지는 구간 없이 한 번에 NaN이 되며, 지뢰형은 평온하다가 특정 배치를 만나는 순간 한 번에 폭발한다. 세 지문이 다르므로 step 단위 로그만 있으면 원인을 구분할 수 있다.</desc>
+  <title id="t3">NaN 원인별 loss 곡선의 모양 세 가지</title>
+  <desc id="d3">발산형은 loss가 계단처럼 곱절로 커지다가 죽고, 즉사형은 정상적으로 줄어들다가 커지는 구간 없이 한 번에 NaN이 되며, 지뢰형은 평온하다가 특정 batch를 만나는 순간 한 번에 폭발한다. 세 모양이 다르므로 batch 단위 로그만 있으면 원인을 구분할 수 있다.</desc>
   <style>
     text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
     .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
@@ -24,7 +24,7 @@
     }
   </style>
   <rect class="bg" x=".5" y=".5" width="719" height="299" rx="10"/>
-  <text class="ttl" x="24" y="30">같은 NaN이라도 죽는 모양이 다르다 (가로축 = step)</text>
+  <text class="ttl" x="24" y="30">같은 NaN이라도 죽는 모양이 다르다 (가로축 = batch)</text>
 
   <!-- ===== 1. 발산형 ===== -->
   <rect class="pane" x="24" y="50" width="212" height="164" rx="8"/>
@@ -62,9 +62,9 @@
   <path class="lnBad" d="M590,183 L600,112"/>
   <circle cx="590" cy="183" r="4" class="bad"/>
   <text class="bad" x="606" y="116" style="font-size:15px;font-weight:700">✕</text>
-  <text class="mut" x="596" y="200" text-anchor="middle">↑ 그 배치</text>
+  <text class="mut" x="596" y="200" text-anchor="middle">↑ 그 batch</text>
   <text class="sub bad" x="500" y="212">평온하다가 한 방에</text>
 
-  <text class="sub" x="24" y="248">이 세 모양을 구분하려면 로그를 <tspan style="font-weight:700">epoch가 아니라 step 단위</tspan>로 찍어야 한다.</text>
+  <text class="sub" x="24" y="248">이 세 모양을 구분하려면 로그를 <tspan style="font-weight:700">epoch가 아니라 batch 단위</tspan>로 찍어야 한다.</text>
   <text class="mut" x="24" y="270">epoch 단위로 찍으면 세 경우 모두 그냥 "ep 0 loss=nan" 한 줄로 보인다.</text>
 </svg>

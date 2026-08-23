@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720" height="300" role="img" aria-labelledby="t6 d6">
   <title id="t6">분류와 회귀의 오답 벌점 차이</title>
-  <desc id="d6">실제 5점인 고객을 4점이라 예측한 경우와 1점이라 예측한 경우, 분류의 cross entropy는 둘 다 똑같이 오답 하나로 세지만 회귀는 틀린 거리에 비례해 벌점을 준다. 그래서 분류는 크게 틀리는 사고를 막을 유인이 없고, 실측에서도 두 칸 이상 틀린 비율이 회귀의 1.6배였다.</desc>
+  <desc id="d6">실제 5점인 고객을 4점이라 예측한 경우와 1점이라 예측한 경우, 분류의 cross entropy는 둘 다 똑같이 오답 하나로 세지만 회귀는 틀린 거리에 비례해 벌점을 준다. 그래서 분류는 크게 틀리는 사고를 막을 유인이 없다.</desc>
   <style>
     text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
     .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
@@ -49,7 +49,7 @@
   <rect class="boxBad" x="24" y="196" width="304" height="58" rx="8"/>
   <text class="h bad" x="176" y="220" text-anchor="middle">둘 다 똑같이 "오답 1개"</text>
   <text class="sub" x="176" y="242" text-anchor="middle">크게 틀리는 걸 피할 이유가 모델에 없다</text>
-  <text class="mut" x="24" y="272">실측: 2칸 이상 틀림 7.60%</text>
+  <text class="mut" x="24" y="272">크게 틀리는 사고가 잦아진다</text>
 
   <!-- 오른쪽: 회귀 -->
   <text class="h good" x="392" y="118">✓ 회귀 (MSE / MAE)</text>
@@ -64,5 +64,5 @@
   <rect class="boxGood" x="392" y="206" width="304" height="48" rx="8"/>
   <text class="h good" x="544" y="228" text-anchor="middle">멀리 틀릴수록 더 아프다</text>
   <text class="sub" x="544" y="246" text-anchor="middle">모델이 알아서 큰 사고를 피한다</text>
-  <text class="mut" x="392" y="272">실측: 2칸 이상 틀림 4.67%</text>
+  <text class="mut" x="392" y="272">크게 틀리는 사고가 드물다</text>
 </svg>
