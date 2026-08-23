@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" width="720" height="330" role="img" aria-labelledby="t2 d2">
+  <title id="t2">학습률은 산을 내려갈 때의 보폭이다</title>
+  <desc id="d2">보폭이 적당하면 걸음이 점점 짧아지며 골짜기 바닥에 수렴한다. 보폭이 너무 크면 골짜기를 건너뛰어 반대편 더 높은 곳에 착지하고, 그곳은 기울기가 더 가팔라서 다음 걸음이 더 멀리 튄다. 이 되먹임 때문에 loss가 곱절로 커진다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:14px;font-weight:700}
+    .lbl{fill:#0b0b0b;font-size:13px}
+    .sub{fill:#52514e;font-size:12.5px}
+    .mut{fill:#898781;font-size:12px}
+    .curve{stroke:#c3c2b7;stroke-width:2.2;fill:none}
+    .ax{stroke:#e1e0d9;stroke-width:1.5}
+    .div{stroke:#e1e0d9;stroke-width:1.5}
+    .bad{fill:#d03b3b}
+    .good{fill:#006300}
+    .hopG{stroke:#0ca30c;stroke-width:2;fill:none;stroke-dasharray:5 4}
+    .hopB{stroke:#d03b3b;stroke-width:2;fill:none;stroke-dasharray:5 4}
+    .ballG{fill:#0ca30c}
+    .ballB{fill:#d03b3b}
+    .arG{fill:#0ca30c}
+    .arB{fill:#d03b3b}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h,.lbl{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .curve{stroke:#4d4d49}
+      .ax{stroke:#2c2c2a}
+      .div{stroke:#2c2c2a}
+      .good{fill:#0ca30c}
+    }
+  </style>
+  <defs>
+    <marker id="agG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path class="arG" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+    <marker id="agB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path class="arB" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+  <rect class="bg" x=".5" y=".5" width="719" height="329" rx="10"/>
+  <text class="ttl" x="24" y="30">학습률 = 눈 감고 산 내려갈 때의 보폭</text>
+  <line class="div" x1="360" y1="46" x2="360" y2="306"/>
+
+  <!-- ===== 왼쪽: 적당한 보폭 ===== -->
+  <text class="h good" x="24" y="70">✓ 보폭이 적당하면 (lr=0.01)</text>
+  <line class="ax" x1="40" y1="256" x2="322" y2="256"/>
+  <text class="mut" x="24" y="120" transform="rotate(-90 24 120)" text-anchor="middle">loss</text>
+  <path class="curve" d="M46,100 L72,150 L98,190 L124,218 L150,234 L176,240 L202,234 L228,218 L254,190 L280,150 L306,100"/>
+
+  <!-- 걸음: 점점 짧아지며 수렴 -->
+  <circle class="ballG" cx="72" cy="150" r="5.5"/>
+  <path class="hopG" d="M72,142 Q98,112 122,210" marker-end="url(#agG)"/>
+  <circle class="ballG" cx="124" cy="218" r="5.5"/>
+  <path class="hopG" d="M124,210 Q140,192 154,228" marker-end="url(#agG)"/>
+  <circle class="ballG" cx="156" cy="235" r="5.5"/>
+  <circle class="ballG" cx="176" cy="240" r="6.5"/>
+  <text class="sub good" x="176" y="272" text-anchor="middle">골짜기 바닥에 도착</text>
+  <text class="mut" x="40" y="294">걸음이 점점 짧아진다 → 수렴</text>
+
+  <!-- ===== 오른쪽: 너무 큰 보폭 ===== -->
+  <text class="h bad" x="392" y="70">✕ 보폭이 너무 크면 (lr=0.35)</text>
+  <line class="ax" x1="408" y1="256" x2="690" y2="256"/>
+  <path class="curve" d="M414,100 L440,150 L466,190 L492,218 L518,234 L544,240 L570,234 L596,218 L622,190 L648,150 L674,100"/>
+
+  <!-- 걸음: 건너뛰며 발산 -->
+  <circle class="ballB" cx="492" cy="218" r="5.5"/>
+  <path class="hopB" d="M492,210 Q560,176 620,184" marker-end="url(#agB)"/>
+  <circle class="ballB" cx="622" cy="190" r="5.5"/>
+  <path class="hopB" d="M622,182 Q540,110 444,142" marker-end="url(#agB)"/>
+  <circle class="ballB" cx="440" cy="150" r="5.5"/>
+  <path class="hopB" d="M440,142 Q560,58 686,86" marker-end="url(#agB)"/>
+  <text class="sub bad" x="686" y="76" text-anchor="end">화면 밖으로 →</text>
+
+  <text class="sub bad" x="408" y="278">건너뛴 자리가 더 가파르다 → 다음 걸음은 더 크다</text>
+  <text class="mut" x="408" y="298">한 번 튈 때마다 곱절로 커진다 → 6걸음 만에 1e308 초과</text>
+</svg>

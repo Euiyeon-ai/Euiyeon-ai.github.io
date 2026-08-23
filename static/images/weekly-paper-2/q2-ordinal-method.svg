@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="720" height="340" role="img" aria-labelledby="t5 d5">
+  <title id="t5">순서형 모델 만드는 법</title>
+  <desc id="d5">5개 중 하나를 한 번에 고르는 대신, 1점 초과인가 2점 초과인가 3점 초과인가 4점 초과인가를 각각 이진분류로 예측한다. 이 누적확률들을 단조 감소하도록 강제한 뒤 이웃한 값의 차이를 구하면 각 점수의 확률이 된다. 마지막으로 확률과 점수를 곱해 더하면 기댓값 예측이 나온다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:13.5px;font-weight:700}
+    .lbl{fill:#0b0b0b;font-size:12.5px;font-variant-numeric:tabular-nums}
+    .mono{fill:#0b0b0b;font-size:12px;font-family:ui-monospace,Consolas,monospace}
+    .sub{fill:#52514e;font-size:12.5px}
+    .mut{fill:#898781;font-size:11.5px}
+    .node{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.5}
+    .nodeOk{fill:#e8f5e8;stroke:#0ca30c;stroke-width:2}
+    .fl{stroke:#c3c2b7;stroke-width:1.8;fill:none}
+    .arh{fill:#c3c2b7}
+    .div{stroke:#e1e0d9;stroke-width:1.5}
+    .stg{fill:#898781;font-size:11.5px;font-weight:700;letter-spacing:.5px}
+    .good{fill:#006300}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h,.lbl,.mono{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .node{fill:#232322;stroke:#383835}
+      .nodeOk{fill:#122b12;stroke:#0ca30c}
+      .fl{stroke:#383835}
+      .arh{fill:#383835}
+      .div{stroke:#2c2c2a}
+      .good{fill:#0ca30c}
+    }
+  </style>
+  <defs>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path class="arh" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+  <rect class="bg" x=".5" y=".5" width="719" height="339" rx="10"/>
+  <text class="ttl" x="24" y="30">순서형 = "몇 점?" 대신 "몇 점보다 높은가?"를 4번 묻기</text>
+
+  <!-- 1단계: 4개 이진분류 -->
+  <text class="stg" x="24" y="58">1단계 — 이진분류 4개를 따로 학습</text>
+  <g>
+    <rect class="node" x="24"  y="70" width="156" height="40" rx="8"/>
+    <text class="lbl" x="102" y="95" text-anchor="middle">1점보다 높은가?</text>
+    <rect class="node" x="196" y="70" width="156" height="40" rx="8"/>
+    <text class="lbl" x="274" y="95" text-anchor="middle">2점보다 높은가?</text>
+    <rect class="node" x="368" y="70" width="156" height="40" rx="8"/>
+    <text class="lbl" x="446" y="95" text-anchor="middle">3점보다 높은가?</text>
+    <rect class="node" x="540" y="70" width="156" height="40" rx="8"/>
+    <text class="lbl" x="618" y="95" text-anchor="middle">4점보다 높은가?</text>
+  </g>
+
+  <path class="fl" d="M102,116 V138" marker-end="url(#ao)"/>
+  <path class="fl" d="M274,116 V138" marker-end="url(#ao)"/>
+  <path class="fl" d="M446,116 V138" marker-end="url(#ao)"/>
+  <path class="fl" d="M618,116 V138" marker-end="url(#ao)"/>
+
+  <!-- 2단계: 누적확률 -->
+  <text class="stg" x="24" y="158">2단계 — 누적확률 (반드시 왼쪽이 더 커야 한다)</text>
+  <g>
+    <rect class="node" x="24"  y="170" width="156" height="34" rx="8"/>
+    <text class="mono" x="102" y="192" text-anchor="middle">P(y&gt;1) = 0.85</text>
+    <rect class="node" x="196" y="170" width="156" height="34" rx="8"/>
+    <text class="mono" x="274" y="192" text-anchor="middle">P(y&gt;2) = 0.70</text>
+    <rect class="node" x="368" y="170" width="156" height="34" rx="8"/>
+    <text class="mono" x="446" y="192" text-anchor="middle">P(y&gt;3) = 0.45</text>
+    <rect class="node" x="540" y="170" width="156" height="34" rx="8"/>
+    <text class="mono" x="618" y="192" text-anchor="middle">P(y&gt;4) = 0.15</text>
+  </g>
+  <text class="mut" x="24" y="222">따로 학습했으므로 순서가 뒤집힐 수 있다 → <tspan class="mono" style="font-size:11.5px">np.minimum.accumulate</tspan>로 강제한다 (빠뜨리면 안 됨)</text>
+
+  <line class="div" x1="24" y1="238" x2="696" y2="238"/>
+
+  <!-- 3단계: 차이 = 각 점수 확률 -->
+  <text class="stg" x="24" y="262">3단계 — 이웃한 값의 차이 = 각 점수의 확률</text>
+  <g>
+    <rect class="nodeOk" x="24"  y="274" width="124" height="34" rx="8"/>
+    <text class="mono" x="86"  y="296" text-anchor="middle">1점 0.15</text>
+    <rect class="nodeOk" x="156" y="274" width="124" height="34" rx="8"/>
+    <text class="mono" x="218" y="296" text-anchor="middle">2점 0.15</text>
+    <rect class="nodeOk" x="288" y="274" width="124" height="34" rx="8"/>
+    <text class="mono" x="350" y="296" text-anchor="middle">3점 0.25</text>
+    <rect class="nodeOk" x="420" y="274" width="124" height="34" rx="8"/>
+    <text class="mono" x="482" y="296" text-anchor="middle">4점 0.30</text>
+    <rect class="nodeOk" x="552" y="274" width="124" height="34" rx="8"/>
+    <text class="mono" x="614" y="296" text-anchor="middle">5점 0.15</text>
+  </g>
+  <text class="sub good" x="24" y="328">4단계 — 확률 × 점수를 모두 더하면 기댓값: 0.15×1 + 0.15×2 + 0.25×3 + 0.30×4 + 0.15×5 = <tspan style="font-weight:700">3.15점</tspan></text>
+</svg>

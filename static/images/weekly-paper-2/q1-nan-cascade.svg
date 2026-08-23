@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" width="720" height="250" role="img" aria-labelledby="t1 d1">
+  <title id="t1">NaN이 만들어지는 3단계</title>
+  <desc id="d1">loss가 곱절로 커지다가 float64의 표현 한계인 1.8e308을 넘으면 inf가 되고, inf끼리의 뺄셈이나 0과의 곱셈에서 NaN이 생긴다. NaN은 마지막 단계이므로 원인은 그 앞에 있다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:14px;font-weight:700}
+    .lbl{fill:#0b0b0b;font-size:13px;font-variant-numeric:tabular-nums}
+    .mono{fill:#0b0b0b;font-size:12.5px;font-family:ui-monospace,Consolas,monospace}
+    .sub{fill:#52514e;font-size:12.5px}
+    .mut{fill:#898781;font-size:12px}
+    .box{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.5}
+    .fl{stroke:#c3c2b7;stroke-width:1.8;fill:none}
+    .arh{fill:#c3c2b7}
+    .bad{fill:#d03b3b}
+    .boxBad{fill:#fbeaea;stroke:#d03b3b;stroke-width:2}
+    .stg{fill:#898781;font-size:11.5px;font-weight:700;letter-spacing:.5px}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h,.lbl,.mono{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .box{fill:#232322;stroke:#383835}
+      .fl{stroke:#383835}
+      .arh{fill:#383835}
+      .boxBad{fill:#331717;stroke:#d03b3b}
+    }
+  </style>
+  <defs>
+    <marker id="ac1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path class="arh" d="M0,0 L10,5 L0,10 z"/>
+    </marker>
+  </defs>
+  <rect class="bg" x=".5" y=".5" width="719" height="249" rx="10"/>
+  <text class="ttl" x="24" y="30">NaN은 원인이 아니라 마지막 결과다</text>
+
+  <!-- 1단계 -->
+  <text class="stg" x="24" y="58">1단계 — 진범</text>
+  <rect class="box" x="24" y="68" width="196" height="118" rx="8"/>
+  <text class="h" x="40" y="92">loss가 곱절로 커진다</text>
+  <text class="mono" x="40" y="114">6.087</text>
+  <text class="mono" x="40" y="132">160</text>
+  <text class="mono" x="40" y="150">5.2e+04</text>
+  <text class="mono" x="40" y="168">7.9e+12</text>
+  <text class="mut" x="150" y="114">↓</text>
+  <text class="mut" x="150" y="132">↓</text>
+  <text class="mut" x="150" y="150">↓</text>
+
+  <path class="fl" d="M228,127 H262" marker-end="url(#ac1)"/>
+
+  <!-- 2단계 -->
+  <text class="stg" x="270" y="58">2단계 — 한계 초과</text>
+  <rect class="box" x="270" y="68" width="196" height="118" rx="8"/>
+  <text class="h" x="286" y="92">float64가 못 담는다</text>
+  <text class="sub" x="286" y="116">표현 한계</text>
+  <text class="mono" x="286" y="136">1.8e+308</text>
+  <text class="sub" x="286" y="160">넘으면 →</text>
+  <text class="mono bad" x="360" y="160" style="font-weight:700">inf</text>
+
+  <path class="fl" d="M474,127 H508" marker-end="url(#ac1)"/>
+
+  <!-- 3단계 -->
+  <text class="stg" x="516" y="58">3단계 — 우리가 보는 것</text>
+  <rect class="boxBad" x="516" y="68" width="180" height="118" rx="8"/>
+  <text class="h bad" x="532" y="92">답이 정해지지 않음</text>
+  <text class="mono" x="532" y="118">inf − inf</text>
+  <text class="mono" x="532" y="138">0 × inf</text>
+  <text class="mono bad" x="532" y="166" style="font-size:17px;font-weight:700">= NaN</text>
+
+  <text class="sub" x="24" y="214">NaN을 본 시점은 이미 한참 늦은 시점이다. 고쳐야 할 곳은 1단계다.</text>
+  <text class="mut" x="24" y="234">그래서 "왜 NaN인가"가 아니라 "왜 loss가 그렇게까지 커졌나"를 물어야 한다.</text>
+</svg>

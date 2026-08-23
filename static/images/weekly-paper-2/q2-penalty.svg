@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720" height="300" role="img" aria-labelledby="t6 d6">
+  <title id="t6">분류와 회귀의 오답 벌점 차이</title>
+  <desc id="d6">실제 5점인 고객을 4점이라 예측한 경우와 1점이라 예측한 경우, 분류의 cross entropy는 둘 다 똑같이 오답 하나로 세지만 회귀는 틀린 거리에 비례해 벌점을 준다. 그래서 분류는 크게 틀리는 사고를 막을 유인이 없고, 실측에서도 두 칸 이상 틀린 비율이 회귀의 1.6배였다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:14px;font-weight:700}
+    .lbl{fill:#0b0b0b;font-size:13px;font-variant-numeric:tabular-nums}
+    .sub{fill:#52514e;font-size:12.5px}
+    .mut{fill:#898781;font-size:12px}
+    .node{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.5}
+    .div{stroke:#e1e0d9;stroke-width:1.5}
+    .bad{fill:#d03b3b}
+    .good{fill:#006300}
+    .barB{fill:#d03b3b}
+    .barG{fill:#0ca30c}
+    .boxBad{fill:#fbeaea;stroke:#d03b3b;stroke-width:2}
+    .boxGood{fill:#e8f5e8;stroke:#0ca30c;stroke-width:2}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h,.lbl{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .node{fill:#232322;stroke:#383835}
+      .div{stroke:#2c2c2a}
+      .good{fill:#0ca30c}
+      .boxBad{fill:#331717;stroke:#d03b3b}
+      .boxGood{fill:#122b12;stroke:#0ca30c}
+    }
+  </style>
+  <rect class="bg" x=".5" y=".5" width="719" height="299" rx="10"/>
+  <text class="ttl" x="24" y="30">실제 5점인 고객을 틀렸을 때, 벌점은 얼마인가</text>
+
+  <rect class="node" x="24" y="48" width="168" height="34" rx="8"/>
+  <text class="lbl" x="108" y="70" text-anchor="middle">실제 정답: 5점</text>
+  <text class="mut" x="208" y="70">두 가지 오답을 비교한다</text>
+  <line class="div" x1="360" y1="96" x2="360" y2="272"/>
+
+  <!-- 왼쪽: 분류 -->
+  <text class="h bad" x="24" y="118">✕ 분류 (cross entropy)</text>
+  <text class="sub" x="24" y="140">4점이라 예측</text>
+  <rect class="barB" x="150" y="128" width="36" height="16" rx="3"/>
+  <text class="lbl" x="196" y="141">벌점 1</text>
+
+  <text class="sub" x="24" y="176">1점이라 예측</text>
+  <rect class="barB" x="150" y="164" width="36" height="16" rx="3"/>
+  <text class="lbl" x="196" y="177">벌점 1</text>
+
+  <rect class="boxBad" x="24" y="196" width="304" height="58" rx="8"/>
+  <text class="h bad" x="176" y="220" text-anchor="middle">둘 다 똑같이 "오답 1개"</text>
+  <text class="sub" x="176" y="242" text-anchor="middle">크게 틀리는 걸 피할 이유가 모델에 없다</text>
+  <text class="mut" x="24" y="272">실측: 2칸 이상 틀림 7.60%</text>
+
+  <!-- 오른쪽: 회귀 -->
+  <text class="h good" x="392" y="118">✓ 회귀 (MSE / MAE)</text>
+  <text class="sub" x="392" y="140">4점이라 예측</text>
+  <rect class="barG" x="518" y="128" width="30" height="16" rx="3"/>
+  <text class="lbl" x="558" y="141">벌점 1</text>
+
+  <text class="sub" x="392" y="176">1점이라 예측</text>
+  <rect class="barG" x="518" y="164" width="152" height="16" rx="3"/>
+  <text class="lbl" x="518" y="196">벌점 16 (MSE는 거리의 제곱)</text>
+
+  <rect class="boxGood" x="392" y="206" width="304" height="48" rx="8"/>
+  <text class="h good" x="544" y="228" text-anchor="middle">멀리 틀릴수록 더 아프다</text>
+  <text class="sub" x="544" y="246" text-anchor="middle">모델이 알아서 큰 사고를 피한다</text>
+  <text class="mut" x="392" y="272">실측: 2칸 이상 틀림 4.67%</text>
+</svg>

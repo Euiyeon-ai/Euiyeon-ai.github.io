@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720" height="300" role="img" aria-labelledby="t3 d3">
+  <title id="t3">NaN 원인별 loss 곡선의 지문 세 가지</title>
+  <desc id="d3">발산형은 loss가 계단처럼 곱절로 커지다가 죽고, 즉사형은 정상적으로 줄어들다가 커지는 구간 없이 한 번에 NaN이 되며, 지뢰형은 평온하다가 특정 배치를 만나는 순간 한 번에 폭발한다. 세 지문이 다르므로 step 단위 로그만 있으면 원인을 구분할 수 있다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:13.5px;font-weight:700}
+    .sub{fill:#52514e;font-size:12px}
+    .mut{fill:#898781;font-size:11.5px}
+    .pane{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.5}
+    .ax{stroke:#c3c2b7;stroke-width:1.4}
+    .ln{stroke:#0b0b0b;stroke-width:2.2;fill:none}
+    .bad{fill:#d03b3b}
+    .lnBad{stroke:#d03b3b;stroke-width:2.4;fill:none}
+    .dash{stroke:#d03b3b;stroke-width:1.6;fill:none;stroke-dasharray:4 3}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .pane{fill:#232322;stroke:#383835}
+      .ax{stroke:#4d4d49}
+      .ln{stroke:#e8e8e4}
+    }
+  </style>
+  <rect class="bg" x=".5" y=".5" width="719" height="299" rx="10"/>
+  <text class="ttl" x="24" y="30">같은 NaN이라도 죽는 모양이 다르다 (가로축 = step)</text>
+
+  <!-- ===== 1. 발산형 ===== -->
+  <rect class="pane" x="24" y="50" width="212" height="164" rx="8"/>
+  <text class="h" x="40" y="74">① 발산형</text>
+  <text class="mut" x="40" y="92">학습률 과대 · 정규화 누락</text>
+  <line class="ax" x1="44" y1="196" x2="216" y2="196"/>
+  <line class="ax" x1="44" y1="106" x2="44" y2="196"/>
+  <!-- 내려갔다가 지수적으로 폭발 -->
+  <path class="ln" d="M50,150 L66,164 L82,174 L98,180 L114,178"/>
+  <path class="lnBad" d="M114,178 L130,168 L146,150 L160,120 L172,110"/>
+  <text class="bad" x="176" y="116" style="font-size:15px;font-weight:700">✕</text>
+  <text class="sub bad" x="40" y="212">계단식으로 곱절씩 커진다</text>
+
+  <!-- ===== 2. 즉사형 ===== -->
+  <rect class="pane" x="254" y="50" width="212" height="164" rx="8"/>
+  <text class="h" x="270" y="74">② 즉사형</text>
+  <text class="mut" x="270" y="92">데이터에 NaN/inf가 이미 있음</text>
+  <line class="ax" x1="274" y1="196" x2="446" y2="196"/>
+  <line class="ax" x1="274" y1="106" x2="274" y2="196"/>
+  <!-- 정상 감소하다 뚝 끊김 -->
+  <path class="ln" d="M280,150 L296,162 L312,172 L328,178 L344,182"/>
+  <path class="dash" d="M348,182 L348,112"/>
+  <circle cx="348" cy="182" r="4" class="bad"/>
+  <text class="bad" x="356" y="116" style="font-size:13px;font-weight:700">NaN</text>
+  <text class="sub bad" x="270" y="212">커지는 구간이 아예 없다</text>
+
+  <!-- ===== 3. 지뢰형 ===== -->
+  <rect class="pane" x="484" y="50" width="212" height="164" rx="8"/>
+  <text class="h" x="500" y="74">③ 지뢰형</text>
+  <text class="mut" x="500" y="92">라벨에 이상치 1개</text>
+  <line class="ax" x1="504" y1="196" x2="676" y2="196"/>
+  <line class="ax" x1="504" y1="106" x2="504" y2="196"/>
+  <!-- 평온하다가 특정 지점에서 한 번에 -->
+  <path class="ln" d="M510,150 L526,163 L542,172 L558,178 L574,181 L590,183"/>
+  <path class="lnBad" d="M590,183 L600,112"/>
+  <circle cx="590" cy="183" r="4" class="bad"/>
+  <text class="bad" x="606" y="116" style="font-size:15px;font-weight:700">✕</text>
+  <text class="mut" x="596" y="200" text-anchor="middle">↑ 그 배치</text>
+  <text class="sub bad" x="500" y="212">평온하다가 한 방에</text>
+
+  <text class="sub" x="24" y="248">이 세 모양을 구분하려면 로그를 <tspan style="font-weight:700">epoch가 아니라 step 단위</tspan>로 찍어야 한다.</text>
+  <text class="mut" x="24" y="270">epoch 단위로 찍으면 세 경우 모두 그냥 "ep 0 loss=nan" 한 줄로 보인다.</text>
+</svg>
