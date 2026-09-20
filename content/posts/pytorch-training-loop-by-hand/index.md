@@ -44,7 +44,7 @@ x=2, 정답 5, w=1, b=0, lr=0.05로 **딱 한 번** 학습한다.
 
 loss가 9 → 2.25로 줄었다. 한 바퀴가 제대로 돌았다는 뜻.
 
-![학습 한 바퀴: 예측 → 틀림 재기 → 방향 계산 → 조금 고치기 → 지우기 → 다시 예측으로 반복](/images/study-pytorch-day01/p11-one-step.svg)
+![학습 한 바퀴: 예측 → 틀림 재기 → 방향 계산 → 조금 고치기 → 지우기 → 다시 예측으로 반복](images/p11-one-step.svg)
 
 <details>
 <summary>Q2. <code>loss.backward()</code>를 실행하면 w와 b 값이 바뀔까?</summary>

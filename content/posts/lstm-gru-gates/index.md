@@ -14,7 +14,7 @@ categories = ['개발']
 
 ## 지금 어디에 있나
 
-![자연어처리 모델의 발전 흐름. RNN에서 LSTM, GRU를 거쳐 Seq2Seq, Attention, Transformer로 이어진다](/images/study-lstm-gru/lstm-gru-14-roadmap.svg)
+![자연어처리 모델의 발전 흐름. RNN에서 LSTM, GRU를 거쳐 Seq2Seq, Attention, Transformer로 이어진다](images/lstm-gru-14-roadmap.svg)
 
 ---
 
@@ -25,9 +25,9 @@ categories = ['개발']
 | **문제 ← 원인** | 무엇이 문제였고, **왜** 문제였나? |
 | **해결책 → 변화** | 어떻게 해결했고, 그래서 **무엇이 달라졌나**? |
 
-![RNN, LSTM, GRU 각각의 문제, 원인, 해결책, 변화를 한눈에 정리한 표](/images/study-lstm-gru/lstm-gru-11-overview.svg)
+![RNN, LSTM, GRU 각각의 문제, 원인, 해결책, 변화를 한눈에 정리한 표](images/lstm-gru-11-overview.svg)
 
-![RNN에서 LSTM, GRU로 이어지는 계보](/images/study-lstm-gru/lstm-gru-10-lineage.svg)
+![RNN에서 LSTM, GRU로 이어지는 계보](images/lstm-gru-10-lineage.svg)
 
 ---
 
@@ -42,7 +42,7 @@ categories = ['개발']
 
 `나 → 는 → 밥 → 을 → 먹었다`
 
-![RNN 구조. 단어를 하나씩 읽으면서 이전 hidden state를 다음 시점으로 넘긴다](/images/study-lstm-gru/lstm-gru-01-rnn.svg)
+![RNN 구조. 단어를 하나씩 읽으면서 이전 hidden state를 다음 시점으로 넘긴다](images/lstm-gru-01-rnn.svg)
 
 ```
 h_새 = tanh( W·h_이전 + U·x_지금 )
@@ -101,7 +101,7 @@ C_t = f_t · C_(t-1) + i_t · C̃_t          C_(t-1) ──( × f_t )──▶ C
 
 **구조 한눈에**
 
-![LSTM 구조 한눈에. Cell state 통로 위에 forget, input, output 세 개의 gate가 달려 있다](/images/study-lstm-gru/lstm-gru-13-lstm-glance.svg)
+![LSTM 구조 한눈에. Cell state 통로 위에 forget, input, output 세 개의 gate가 달려 있다](images/lstm-gru-13-lstm-glance.svg)
 
 <details>
 <summary>Q2. Input gate를 <code>tanh × σ</code>로 나눈 이유는?</summary>
@@ -161,7 +161,7 @@ forget gate는 학습하면서 조절되지만, **처음부터 너무 닫혀 있
 
 ### 5. 수식 — 한 줄씩
 
-![LSTM 수식을 한 줄씩 풀어 쓴 그림](/images/study-lstm-gru/lstm-gru-15-lstm-formula.svg)
+![LSTM 수식을 한 줄씩 풀어 쓴 그림](images/lstm-gru-15-lstm-formula.svg)
 
 **C = 이전 기억 × 얼마나 남길지 + 새 내용 × 얼마나 넣을지**
 
@@ -311,7 +311,7 @@ padding 예 — 문장 3칸, 틀 6칸
 
 ### 5. 수식 — 한 줄씩
 
-![GRU 수식을 한 줄씩 풀어 쓴 그림](/images/study-lstm-gru/lstm-gru-16-gru-formula.svg)
+![GRU 수식을 한 줄씩 풀어 쓴 그림](images/lstm-gru-16-gru-formula.svg)
 
 ### 6. 코드 — LSTM 코드에서 글자 몇 개만 바뀐다
 
@@ -342,7 +342,7 @@ output, h_n        = gru(x)      # h 한 줄
 
 ## 지금 배운 아이디어가 Transformer 안에 그대로
 
-![LSTM과 GRU에서 배운 gate와 덧셈 경로가 Transformer의 attention과 residual로 이어진다](/images/study-lstm-gru/lstm-gru-00-why.svg)
+![LSTM과 GRU에서 배운 gate와 덧셈 경로가 Transformer의 attention과 residual로 이어진다](images/lstm-gru-00-why.svg)
 
 | 지금 배운 것 | Transformer 안에서 |
 |---|---|
@@ -354,7 +354,7 @@ output, h_n        = gru(x)      # h 한 줄
 
 ## 요약
 
-![RNN, LSTM, GRU 요약](/images/study-lstm-gru/lstm-gru-09-summary.svg)
+![RNN, LSTM, GRU 요약](images/lstm-gru-09-summary.svg)
 
 ```
 RNN → LSTM → GRU → [Seq2Seq] → Attention → Transformer
