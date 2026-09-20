@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" font-family="Malgun Gothic, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1F2937"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#B91C1C"/></marker>
+  </defs>
+  <rect width="1000" height="470" fill="#FFFFFF"/>
+
+  <!-- ===== 로드맵 ===== -->
+  <g font-size="15" text-anchor="middle" font-weight="700">
+    <rect x="40" y="50" width="100" height="48" rx="12" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1.5"/>
+    <text x="90" y="80" fill="#374151">RNN</text>
+
+    <rect x="180" y="40" width="150" height="68" rx="14" fill="#FEF3C7" stroke="#B45309" stroke-width="3"/>
+    <text x="255" y="70" fill="#B45309" font-size="17">LSTM · GRU</text>
+    <text x="255" y="93" fill="#B45309" font-size="13" font-weight="400">지금</text>
+
+    <rect x="370" y="50" width="110" height="48" rx="12" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1.5"/>
+    <text x="425" y="80" fill="#374151">Seq2Seq</text>
+
+    <rect x="520" y="50" width="120" height="48" rx="12" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="1.5"/>
+    <text x="580" y="80" fill="#1E3A8A">Attention</text>
+
+    <rect x="680" y="50" width="140" height="48" rx="12" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="1.5"/>
+    <text x="750" y="80" fill="#1E3A8A">Transformer</text>
+
+    <rect x="860" y="50" width="100" height="48" rx="12" fill="#EDE9FE" stroke="#6D28D9" stroke-width="1.5"/>
+    <text x="910" y="80" fill="#6D28D9">GPT</text>
+  </g>
+  <g stroke="#1F2937" stroke-width="2.2" fill="none">
+    <line x1="140" y1="74" x2="178" y2="74" marker-end="url(#a)"/>
+    <line x1="330" y1="74" x2="368" y2="74" marker-end="url(#a)"/>
+    <line x1="480" y1="74" x2="518" y2="74" marker-end="url(#a)"/>
+    <line x1="640" y1="74" x2="678" y2="74" marker-end="url(#a)"/>
+    <line x1="820" y1="74" x2="858" y2="74" marker-end="url(#a)"/>
+  </g>
+
+  <line x1="40" y1="140" x2="960" y2="140" stroke="#E5E7EB" stroke-width="1.5"/>
+  <text x="500" y="172" text-anchor="middle" font-size="16" font-weight="700" fill="#1E3A8A">지금 배운 아이디어 3개 = Transformer의 핵심 3개</text>
+
+  <!-- ===== 패널 1: Gate → Attention ===== -->
+  <g>
+    <rect x="40" y="195" width="290" height="250" rx="14" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1.5"/>
+    <text x="185" y="225" text-anchor="middle" font-size="16" font-weight="700" fill="#B45309">Gate  →  Attention</text>
+
+    <!-- 왼쪽: 밸브 -->
+    <rect x="75" y="265" width="60" height="34" rx="9" fill="#FEF3C7" stroke="#B45309" stroke-width="2"/>
+    <text x="105" y="289" text-anchor="middle" font-size="18" fill="#B45309" font-weight="700">σ</text>
+    <line x1="105" y1="299" x2="105" y2="318" stroke="#1F2937" stroke-width="1.8" marker-end="url(#a)"/>
+    <rect x="60" y="322" width="30" height="28" fill="#B45309"/>
+    <rect x="92" y="322" width="30" height="28" fill="#B45309" fill-opacity="0.15"/>
+    <rect x="124" y="322" width="30" height="28" fill="#B45309" fill-opacity="0.6"/>
+
+    <line x1="165" y1="315" x2="200" y2="315" stroke="#B45309" stroke-width="2.2" marker-end="url(#a)"/>
+
+    <!-- 오른쪽: attention -->
+    <rect x="212" y="265" width="30" height="24" rx="5" fill="#DBEAFE" stroke="#93C5FD"/>
+    <rect x="247" y="265" width="30" height="24" rx="5" fill="#DBEAFE" stroke="#93C5FD"/>
+    <rect x="282" y="265" width="30" height="24" rx="5" fill="#DBEAFE" stroke="#93C5FD"/>
+    <line x1="227" y1="289" x2="257" y2="330" stroke="#1E3A8A" stroke-width="4"/>
+    <line x1="262" y1="289" x2="261" y2="330" stroke="#1E3A8A" stroke-width="1" stroke-opacity="0.4"/>
+    <line x1="297" y1="289" x2="265" y2="330" stroke="#1E3A8A" stroke-width="1" stroke-opacity="0.4"/>
+    <rect x="240" y="332" width="42" height="24" rx="5" fill="#FFE4E6" stroke="#B91C1C" stroke-width="1.5"/>
+
+    <text x="185" y="410" text-anchor="middle" font-size="15" fill="#78350F" font-weight="700">"얼마나 쓸까" 를 학습</text>
+  </g>
+
+  <!-- ===== 패널 2: 덧셈 경로 → Residual ===== -->
+  <g>
+    <rect x="355" y="195" width="290" height="250" rx="14" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.5"/>
+    <text x="500" y="225" text-anchor="middle" font-size="16" font-weight="700" fill="#B91C1C">덧셈 경로  →  Residual</text>
+
+    <!-- 왼쪽: cell state line -->
+    <line x1="375" y1="300" x2="480" y2="300" stroke="#B91C1C" stroke-width="4" marker-end="url(#ar)"/>
+    <circle cx="405" cy="300" r="13" fill="#fff" stroke="#B91C1C" stroke-width="2"/>
+    <text x="405" y="305" text-anchor="middle" font-size="14" fill="#B91C1C">⊗</text>
+    <circle cx="450" cy="300" r="13" fill="#fff" stroke="#B91C1C" stroke-width="2.5"/>
+    <text x="450" y="305" text-anchor="middle" font-size="14" fill="#B91C1C" font-weight="700">⊕</text>
+    <line x1="405" y1="345" x2="405" y2="315" stroke="#1F2937" stroke-width="1.8" marker-end="url(#a)"/>
+    <line x1="450" y1="345" x2="450" y2="315" stroke="#1F2937" stroke-width="1.8" marker-end="url(#a)"/>
+
+    <line x1="497" y1="300" x2="532" y2="300" stroke="#B91C1C" stroke-width="2.2" marker-end="url(#a)"/>
+
+    <!-- 오른쪽: residual -->
+    <line x1="590" y1="250" x2="590" y2="268" stroke="#1F2937" stroke-width="1.8"/>
+    <rect x="560" y="270" width="60" height="32" rx="8" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="1.5"/>
+    <text x="590" y="291" text-anchor="middle" font-size="13" fill="#1E3A8A" font-weight="700">Layer</text>
+    <line x1="590" y1="302" x2="590" y2="323" stroke="#1F2937" stroke-width="1.8" marker-end="url(#a)"/>
+    <circle cx="590" cy="338" r="13" fill="#fff" stroke="#B91C1C" stroke-width="2.5"/>
+    <text x="590" y="343" text-anchor="middle" font-size="14" fill="#B91C1C" font-weight="700">⊕</text>
+    <path d="M590 258 L628 258 L628 338 L604 338" fill="none" stroke="#B91C1C" stroke-width="3" marker-end="url(#ar)"/>
+    <line x1="590" y1="351" x2="590" y2="368" stroke="#1F2937" stroke-width="1.8" marker-end="url(#a)"/>
+
+    <text x="500" y="410" text-anchor="middle" font-size="15" fill="#881337" font-weight="700">곱셈 대신 덧셈 → 기울기가 산다</text>
+  </g>
+
+  <!-- ===== 패널 3: 압축 → 직접 본다 ===== -->
+  <g>
+    <rect x="670" y="195" width="290" height="250" rx="14" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1.5"/>
+    <text x="815" y="225" text-anchor="middle" font-size="16" font-weight="700" fill="#1E3A8A">h 하나에 압축  →  직접 본다</text>
+
+    <!-- 왼쪽: 깔때기 -->
+    <rect x="695" y="262" width="30" height="22" rx="5" fill="#DBEAFE" stroke="#93C5FD"/>
+    <rect x="730" y="262" width="30" height="22" rx="5" fill="#DBEAFE" stroke="#93C5FD"/>
+    <rect x="765" y="262" width="30" height="22" rx="5" fill="#DBEAFE" stroke="#93C5FD"/>
+    <path d="M695 290 L795 290 L760 318 L730 318 Z" fill="#E5E7EB" stroke="#9CA3AF"/>
+    <rect x="729" y="322" width="32" height="24" rx="6" fill="#1E3A8A"/>
+    <text x="745" y="339" text-anchor="middle" font-size="13" fill="#fff" font-weight="700">h</text>
+    <line x1="745" y1="346" x2="745" y2="360" stroke="#1F2937" stroke-width="1.8" marker-end="url(#a)"/>
+    <rect x="724" y="362" width="42" height="24" rx="5" fill="#FFE4E6" stroke="#B91C1C" stroke-width="1.5"/>
+
+    <line x1="808" y1="320" x2="843" y2="320" stroke="#1E3A8A" stroke-width="2.2" marker-end="url(#a)"/>
+
+    <!-- 오른쪽: 직접 -->
+    <rect x="852" y="262" width="30" height="22" rx="5" fill="#DBEAFE" stroke="#93C5FD"/>
+    <rect x="887" y="262" width="30" height="22" rx="5" fill="#DBEAFE" stroke="#93C5FD"/>
+    <rect x="922" y="262" width="30" height="22" rx="5" fill="#DBEAFE" stroke="#93C5FD"/>
+    <line x1="867" y1="284" x2="898" y2="360" stroke="#1E3A8A" stroke-width="4"/>
+    <line x1="902" y1="284" x2="902" y2="360" stroke="#1E3A8A" stroke-width="1" stroke-opacity="0.4"/>
+    <line x1="937" y1="284" x2="906" y2="360" stroke="#1E3A8A" stroke-width="1" stroke-opacity="0.4"/>
+    <rect x="881" y="362" width="42" height="24" rx="5" fill="#FFE4E6" stroke="#B91C1C" stroke-width="1.5"/>
+
+    <text x="815" y="410" text-anchor="middle" font-size="15" fill="#1E40AF" font-weight="700">이 한계가 attention을 낳음</text>
+  </g>
+</svg>

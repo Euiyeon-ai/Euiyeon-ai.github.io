@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" font-family="Malgun Gothic, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9CA3AF"/></marker>
+  </defs>
+  <rect width="1000" height="480" fill="#FFFFFF"/>
+
+  <!-- 열 헤더 -->
+  <g font-size="14" font-weight="700" text-anchor="middle">
+    <rect x="170" y="20" width="190" height="34" rx="8" fill="#FEE2E2"/><text x="265" y="43" fill="#B91C1C">문제</text>
+    <rect x="375" y="20" width="190" height="34" rx="8" fill="#FEF3C7"/><text x="470" y="43" fill="#B45309">원인</text>
+    <rect x="580" y="20" width="190" height="34" rx="8" fill="#DCFCE7"/><text x="675" y="43" fill="#15803D">해결책</text>
+    <rect x="785" y="20" width="190" height="34" rx="8" fill="#DBEAFE"/><text x="880" y="43" fill="#1E3A8A">변화</text>
+  </g>
+  <g stroke="#9CA3AF" stroke-width="1.5" fill="none">
+    <line x1="362" y1="37" x2="372" y2="37" marker-end="url(#a)"/>
+    <line x1="567" y1="37" x2="577" y2="37" marker-end="url(#a)"/>
+    <line x1="772" y1="37" x2="782" y2="37" marker-end="url(#a)"/>
+  </g>
+
+  <g font-size="13" text-anchor="middle">
+    <!-- RNN -->
+    <rect x="20" y="68" width="140" height="52" rx="10" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1.5"/>
+    <text x="90" y="99" font-size="15" font-weight="700" fill="#374151">RNN</text>
+    <rect x="170" y="68" width="190" height="52" rx="8" fill="#FEF2F2"/>
+    <text x="265" y="90" fill="#7F1D1D">일반 NN은</text><text x="265" y="108" fill="#7F1D1D" font-weight="700">과거를 못 봄</text>
+    <rect x="375" y="68" width="190" height="52" rx="8" fill="#FFFBEB"/>
+    <text x="470" y="90" fill="#78350F">입력을</text><text x="470" y="108" fill="#78350F" font-weight="700">독립 처리</text>
+    <rect x="580" y="68" width="190" height="52" rx="8" fill="#F0FDF4"/>
+    <text x="675" y="90" fill="#14532D">hidden state 를</text><text x="675" y="108" fill="#14532D" font-weight="700">다음 시점에 전달</text>
+    <rect x="785" y="68" width="190" height="52" rx="8" fill="#EFF6FF"/>
+    <text x="880" y="90" fill="#1E40AF">과거를 기억하며</text><text x="880" y="108" fill="#1E40AF" font-weight="700">순차 처리</text>
+
+    <!-- LSTM -->
+    <rect x="20" y="132" width="140" height="52" rx="10" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1.5"/>
+    <text x="90" y="163" font-size="15" font-weight="700" fill="#374151">LSTM</text>
+    <rect x="170" y="132" width="190" height="52" rx="8" fill="#FEF2F2"/>
+    <text x="265" y="154" fill="#7F1D1D">RNN은</text><text x="265" y="172" fill="#7F1D1D" font-weight="700">먼 과거 학습 못 함</text>
+    <rect x="375" y="132" width="190" height="52" rx="8" fill="#FFFBEB"/>
+    <text x="470" y="154" fill="#78350F">긴 역전파</text><text x="470" y="172" fill="#78350F" font-weight="700">기울기 소실</text>
+    <rect x="580" y="132" width="190" height="52" rx="8" fill="#F0FDF4"/>
+    <text x="675" y="154" fill="#14532D">Cell state</text><text x="675" y="172" fill="#14532D" font-weight="700">+ Gate 3</text>
+    <rect x="785" y="132" width="190" height="52" rx="8" fill="#EFF6FF"/>
+    <text x="880" y="154" fill="#1E40AF">필요한 정보를</text><text x="880" y="172" fill="#1E40AF" font-weight="700">오래 유지 · 학습</text>
+
+    <!-- GRU -->
+    <rect x="20" y="196" width="140" height="52" rx="10" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1.5"/>
+    <text x="90" y="227" font-size="15" font-weight="700" fill="#374151">GRU</text>
+    <rect x="170" y="196" width="190" height="52" rx="8" fill="#FEF2F2"/>
+    <text x="265" y="218" fill="#7F1D1D">LSTM이</text><text x="265" y="236" fill="#7F1D1D" font-weight="700">복잡 · 무거움</text>
+    <rect x="375" y="196" width="190" height="52" rx="8" fill="#FFFBEB"/>
+    <text x="470" y="218" fill="#78350F">상태 2</text><text x="470" y="236" fill="#78350F" font-weight="700">+ Gate 3</text>
+    <rect x="580" y="196" width="190" height="52" rx="8" fill="#F0FDF4"/>
+    <text x="675" y="218" fill="#14532D">상태 1</text><text x="675" y="236" fill="#14532D" font-weight="700">+ Gate 2</text>
+    <rect x="785" y="196" width="190" height="52" rx="8" fill="#EFF6FF"/>
+    <text x="880" y="218" fill="#1E40AF">같은 목적을</text><text x="880" y="236" fill="#1E40AF" font-weight="700">더 간단하게</text>
+
+    <!-- Seq2Seq -->
+    <rect x="20" y="260" width="140" height="52" rx="10" fill="#FEF3C7" stroke="#B45309" stroke-width="1.5" stroke-dasharray="6 3"/>
+    <text x="90" y="284" font-size="14" font-weight="700" fill="#B45309">[ Seq2Seq ]</text>
+    <text x="90" y="302" font-size="10" fill="#78350F">활용 구조</text>
+    <rect x="170" y="260" width="190" height="52" rx="8" fill="#FEF2F2"/>
+    <text x="265" y="282" fill="#7F1D1D">입력 · 출력</text><text x="265" y="300" fill="#7F1D1D" font-weight="700">길이가 다름</text>
+    <rect x="375" y="260" width="190" height="52" rx="8" fill="#FFFBEB"/>
+    <text x="470" y="282" fill="#78350F">RNN은</text><text x="470" y="300" fill="#78350F" font-weight="700">시점별 입력 → 출력</text>
+    <rect x="580" y="260" width="190" height="52" rx="8" fill="#F0FDF4"/>
+    <text x="675" y="282" fill="#14532D">Encoder → Context</text><text x="675" y="300" fill="#14532D" font-weight="700">→ Decoder</text>
+    <rect x="785" y="260" width="190" height="52" rx="8" fill="#EFF6FF"/>
+    <text x="880" y="282" fill="#1E40AF">문장 → 문장</text><text x="880" y="300" fill="#1E40AF" font-weight="700">변환</text>
+
+    <!-- Attention -->
+    <rect x="20" y="324" width="140" height="52" rx="10" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1.5"/>
+    <text x="90" y="355" font-size="15" font-weight="700" fill="#374151">Attention</text>
+    <rect x="170" y="324" width="190" height="52" rx="8" fill="#FEF2F2"/>
+    <text x="265" y="346" fill="#7F1D1D">Context 하나에</text><text x="265" y="364" fill="#7F1D1D" font-weight="700">압축 → 손실</text>
+    <rect x="375" y="324" width="190" height="52" rx="8" fill="#FFFBEB"/>
+    <text x="470" y="346" fill="#78350F">모든 정보를</text><text x="470" y="364" fill="#78350F" font-weight="700">벡터 하나에</text>
+    <rect x="580" y="324" width="190" height="52" rx="8" fill="#F0FDF4"/>
+    <text x="675" y="346" fill="#14532D">필요한 입력을</text><text x="675" y="364" fill="#14532D" font-weight="700">직접 참고</text>
+    <rect x="785" y="324" width="190" height="52" rx="8" fill="#EFF6FF"/>
+    <text x="880" y="346" fill="#1E40AF">먼 정보도</text><text x="880" y="364" fill="#1E40AF" font-weight="700">골라서 봄</text>
+
+    <!-- Transformer -->
+    <rect x="20" y="388" width="140" height="52" rx="10" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1.5"/>
+    <text x="90" y="419" font-size="15" font-weight="700" fill="#374151">Transformer</text>
+    <rect x="170" y="388" width="190" height="52" rx="8" fill="#FEF2F2"/>
+    <text x="265" y="410" fill="#7F1D1D">RNN 계열은</text><text x="265" y="428" fill="#7F1D1D" font-weight="700">순서대로 계산</text>
+    <rect x="375" y="388" width="190" height="52" rx="8" fill="#FFFBEB"/>
+    <text x="470" y="410" fill="#78350F">t−1 → t → t+1</text><text x="470" y="428" fill="#78350F" font-weight="700">의존</text>
+    <rect x="580" y="388" width="190" height="52" rx="8" fill="#F0FDF4"/>
+    <text x="675" y="410" fill="#14532D">RNN 제거</text><text x="675" y="428" fill="#14532D" font-weight="700">+ Self-Attention</text>
+    <rect x="785" y="388" width="190" height="52" rx="8" fill="#EFF6FF"/>
+    <text x="880" y="410" fill="#1E40AF">전체 관계 한꺼번에</text><text x="880" y="428" fill="#1E40AF" font-weight="700">병렬 처리</text>
+  </g>
+
+  <g font-size="12" fill="#9CA3AF" text-anchor="middle">
+    <text x="90" y="129">↓</text><text x="90" y="193">↓</text><text x="90" y="257">↓</text><text x="90" y="321">↓</text><text x="90" y="385">↓</text>
+  </g>
+  <text x="500" y="466" text-anchor="middle" font-size="12" fill="#6B7280">앞 모델의 "변화"가 다음 모델의 "문제"를 만든다</text>
+</svg>

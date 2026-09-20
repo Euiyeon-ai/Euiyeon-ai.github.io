@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" font-family="Malgun Gothic, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1F2937"/></marker>
+    <marker id="ao" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#EA580C"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#15803D"/></marker>
+    <marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6D28D9"/></marker>
+  </defs>
+  <rect width="1000" height="420" fill="#FFFFFF"/>
+
+  <!-- 왼쪽: ANN vs RNN -->
+  <text x="150" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A8A">ANN vs RNN — 루프 하나 차이</text>
+
+  <!-- ANN -->
+  <g stroke="#1F2937" stroke-width="2" fill="none">
+    <circle cx="80" cy="110" r="22" fill="#F3F4F6"/>
+    <circle cx="80" cy="210" r="22" fill="#DBEAFE"/>
+    <circle cx="80" cy="310" r="22" fill="#F3F4F6"/>
+    <line x1="80" y1="132" x2="80" y2="186" marker-end="url(#a)"/>
+    <line x1="80" y1="232" x2="80" y2="286" marker-end="url(#a)"/>
+  </g>
+  <g font-size="16" text-anchor="middle" fill="#1F2937" font-style="italic">
+    <text x="80" y="116">u</text><text x="80" y="216">x</text><text x="80" y="316">y</text>
+  </g>
+  <text x="80" y="360" text-anchor="middle" font-size="14" fill="#6B7280">ANN</text>
+  <text x="80" y="380" text-anchor="middle" font-size="12" fill="#6B7280">한 방향</text>
+
+  <!-- RNN -->
+  <g stroke="#1F2937" stroke-width="2" fill="none">
+    <circle cx="220" cy="110" r="22" fill="#F3F4F6"/>
+    <circle cx="220" cy="210" r="22" fill="#DBEAFE"/>
+    <circle cx="220" cy="310" r="22" fill="#F3F4F6"/>
+    <line x1="220" y1="132" x2="220" y2="186" marker-end="url(#a)"/>
+    <line x1="220" y1="232" x2="220" y2="286" marker-end="url(#a)"/>
+    <path d="M240 200 C 290 170, 290 250, 242 222" stroke="#B91C1C" stroke-width="2.5" marker-end="url(#a)"/>
+  </g>
+  <g font-size="16" text-anchor="middle" fill="#1F2937" font-style="italic">
+    <text x="220" y="116">u</text><text x="220" y="216">x</text><text x="220" y="316">y</text>
+  </g>
+  <text x="290" y="180" font-size="12" fill="#B91C1C" font-weight="700">셀프 피드백</text>
+  <text x="220" y="360" text-anchor="middle" font-size="14" fill="#6B7280">RNN</text>
+  <text x="220" y="380" text-anchor="middle" font-size="12" fill="#6B7280">상태가 자기에게 돌아옴</text>
+
+  <text x="150" y="405" text-anchor="middle" font-size="12" fill="#6B7280">입력 u · 상태 x · 출력 y</text>
+
+  <line x1="320" y1="20" x2="320" y2="405" stroke="#E5E7EB" stroke-width="1.5"/>
+
+  <!-- 오른쪽: 시간축으로 펼친 RNN -->
+  <text x="660" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#1E3A8A">시간축으로 펼치면 — 모든 시점이 같은 W 를 쓴다</text>
+
+  <g id="steps">
+    <!-- t-1 -->
+    <rect x="410" y="70" width="90" height="40" rx="8" fill="#F3F4F6" stroke="#1F2937" stroke-width="1.5"/>
+    <text x="455" y="96" text-anchor="middle" font-size="15" fill="#1F2937">y<tspan font-size="11" dy="4">t−1</tspan></text>
+    <rect x="405" y="190" width="100" height="46" rx="8" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="2"/>
+    <text x="455" y="219" text-anchor="middle" font-size="16" font-weight="700" fill="#1E3A8A">h<tspan font-size="11" dy="4">t−1</tspan></text>
+    <rect x="410" y="320" width="90" height="40" rx="8" fill="#FFF7ED" stroke="#1F2937" stroke-width="1.5"/>
+    <text x="455" y="346" text-anchor="middle" font-size="15" fill="#1F2937">x<tspan font-size="11" dy="4">t−1</tspan></text>
+
+    <!-- t -->
+    <rect x="615" y="70" width="90" height="40" rx="8" fill="#F3F4F6" stroke="#1F2937" stroke-width="1.5"/>
+    <text x="660" y="96" text-anchor="middle" font-size="15" fill="#1F2937">y<tspan font-size="11" dy="4">t</tspan></text>
+    <rect x="610" y="190" width="100" height="46" rx="8" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="2"/>
+    <text x="660" y="219" text-anchor="middle" font-size="16" font-weight="700" fill="#1E3A8A">h<tspan font-size="11" dy="4">t</tspan></text>
+    <rect x="615" y="320" width="90" height="40" rx="8" fill="#FFF7ED" stroke="#1F2937" stroke-width="1.5"/>
+    <text x="660" y="346" text-anchor="middle" font-size="15" fill="#1F2937">x<tspan font-size="11" dy="4">t</tspan></text>
+
+    <!-- t+1 -->
+    <rect x="820" y="70" width="90" height="40" rx="8" fill="#F3F4F6" stroke="#1F2937" stroke-width="1.5"/>
+    <text x="865" y="96" text-anchor="middle" font-size="15" fill="#1F2937">y<tspan font-size="11" dy="4">t+1</tspan></text>
+    <rect x="815" y="190" width="100" height="46" rx="8" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="2"/>
+    <text x="865" y="219" text-anchor="middle" font-size="16" font-weight="700" fill="#1E3A8A">h<tspan font-size="11" dy="4">t+1</tspan></text>
+    <rect x="820" y="320" width="90" height="40" rx="8" fill="#FFF7ED" stroke="#1F2937" stroke-width="1.5"/>
+    <text x="865" y="346" text-anchor="middle" font-size="15" fill="#1F2937">x<tspan font-size="11" dy="4">t+1</tspan></text>
+  </g>
+
+  <!-- 세로 화살표: x → h (W_xh, 주황), h → y (W_hy, 보라) -->
+  <g stroke-width="2.2" fill="none">
+    <line x1="455" y1="320" x2="455" y2="238" stroke="#EA580C" marker-end="url(#ao)"/>
+    <line x1="660" y1="320" x2="660" y2="238" stroke="#EA580C" marker-end="url(#ao)"/>
+    <line x1="865" y1="320" x2="865" y2="238" stroke="#EA580C" marker-end="url(#ao)"/>
+    <line x1="455" y1="190" x2="455" y2="112" stroke="#6D28D9" marker-end="url(#ap)"/>
+    <line x1="660" y1="190" x2="660" y2="112" stroke="#6D28D9" marker-end="url(#ap)"/>
+    <line x1="865" y1="190" x2="865" y2="112" stroke="#6D28D9" marker-end="url(#ap)"/>
+    <!-- 가로 화살표: h → h (W_hh, 초록) -->
+    <line x1="350" y1="213" x2="403" y2="213" stroke="#15803D" stroke-dasharray="5 4" marker-end="url(#ag)"/>
+    <line x1="505" y1="213" x2="608" y2="213" stroke="#15803D" marker-end="url(#ag)"/>
+    <line x1="710" y1="213" x2="813" y2="213" stroke="#15803D" marker-end="url(#ag)"/>
+    <line x1="915" y1="213" x2="970" y2="213" stroke="#15803D" stroke-dasharray="5 4" marker-end="url(#ag)"/>
+  </g>
+  <g font-size="13" font-weight="700" text-anchor="middle">
+    <text x="475" y="285" fill="#EA580C">W_xh</text>
+    <text x="680" y="285" fill="#EA580C">W_xh</text>
+    <text x="885" y="285" fill="#EA580C">W_xh</text>
+    <text x="475" y="150" fill="#6D28D9">W_hy</text>
+    <text x="680" y="150" fill="#6D28D9">W_hy</text>
+    <text x="885" y="150" fill="#6D28D9">W_hy</text>
+    <text x="556" y="205" fill="#15803D">W_hh</text>
+    <text x="761" y="205" fill="#15803D">W_hh</text>
+  </g>
+
+  <!-- 범례 -->
+  <g font-size="13">
+    <rect x="345" y="378" width="630" height="30" rx="6" fill="#F9FAFB" stroke="#E5E7EB"/>
+    <text x="360" y="398" fill="#EA580C" font-weight="700">W_xh</text><text x="405" y="398" fill="#374151">지금 입력 반영</text>
+    <text x="530" y="398" fill="#15803D" font-weight="700">W_hh</text><text x="575" y="398" fill="#374151">이전 상태 반영 (Recurrent)</text>
+    <text x="775" y="398" fill="#6D28D9" font-weight="700">W_hy</text><text x="820" y="398" fill="#374151">출력 예측</text>
+  </g>
+</svg>

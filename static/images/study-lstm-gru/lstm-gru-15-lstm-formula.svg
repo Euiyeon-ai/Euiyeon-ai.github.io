@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" font-family="Malgun Gothic, 'Apple SD Gothic Neo', sans-serif"><rect width="1000" height="500" fill="#FFFFFF"/><text x="30" y="34" font-size="17" font-weight="700" fill="#1F2937">LSTM 수식 — 한 칸에서 일어나는 일</text><text x="30" y="56" font-size="13" fill="#6B7280">[hₜ₋₁, xₜ] = 이전 출력 + 지금 입력.  네 줄이 같은 입력을 받고, σ 세 줄은 가중치 W 만 다르다</text><rect x="30" y="81" width="118" height="30" rx="15" fill="#E3B071"/>
+<text x="89" y="101" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">① forget</text>
+<text x="170" y="103" font-size="21" font-family="Cambria Math, Times New Roman, serif" fill="#1F2937"><tspan fill="#C77D2E">fₜ</tspan><tspan fill="#1F2937"> = σ( W</tspan><tspan fill="#1F2937">f</tspan><tspan fill="#1F2937"> </tspan><tspan fill="#6B7280">[h</tspan><tspan fill="#6B7280">ₜ₋₁</tspan><tspan fill="#6B7280">, x</tspan><tspan fill="#6B7280">ₜ</tspan><tspan fill="#6B7280">]</tspan><tspan fill="#1F2937"> + b</tspan><tspan fill="#1F2937">f</tspan><tspan fill="#1F2937"> )</tspan></text>
+<text x="640" y="103" font-size="14" fill="#6B7280">옛 기억 중  얼마나 남길까</text>
+<rect x="30" y="141" width="118" height="30" rx="15" fill="#E3B071"/>
+<text x="89" y="161" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">② input</text>
+<text x="170" y="163" font-size="21" font-family="Cambria Math, Times New Roman, serif" fill="#1F2937"><tspan fill="#C77D2E">iₜ</tspan><tspan fill="#1F2937"> = σ( W</tspan><tspan fill="#1F2937">i</tspan><tspan fill="#1F2937"> </tspan><tspan fill="#6B7280">[h</tspan><tspan fill="#6B7280">ₜ₋₁</tspan><tspan fill="#6B7280">, x</tspan><tspan fill="#6B7280">ₜ</tspan><tspan fill="#6B7280">]</tspan><tspan fill="#1F2937"> + b</tspan><tspan fill="#1F2937">i</tspan><tspan fill="#1F2937"> )</tspan></text>
+<text x="640" y="163" font-size="14" fill="#6B7280">새 후보 중  얼마나 넣을까</text>
+<rect x="30" y="201" width="118" height="30" rx="15" fill="#8FAEDF"/>
+<text x="89" y="221" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">새 후보</text>
+<text x="170" y="223" font-size="21" font-family="Cambria Math, Times New Roman, serif" fill="#1F2937"><tspan fill="#3F5F98">c̃ₜ</tspan><tspan fill="#1F2937"> = tanh( W</tspan><tspan fill="#1F2937">c</tspan><tspan fill="#1F2937"> </tspan><tspan fill="#6B7280">[h</tspan><tspan fill="#6B7280">ₜ₋₁</tspan><tspan fill="#6B7280">, x</tspan><tspan fill="#6B7280">ₜ</tspan><tspan fill="#6B7280">]</tspan><tspan fill="#1F2937"> + b</tspan><tspan fill="#1F2937">c</tspan><tspan fill="#1F2937"> )</tspan></text>
+<text x="640" y="223" font-size="14" fill="#6B7280">무엇을 넣을까</text>
+<rect x="20" y="262" width="960" height="54" rx="8" fill="#FBEFEF"/>
+<rect x="30" y="271" width="118" height="30" rx="15" fill="#E08E8E"/>
+<text x="89" y="291" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">파이프 c</text>
+<text x="170" y="293" font-size="21" font-family="Cambria Math, Times New Roman, serif" fill="#1F2937"><tspan fill="#B85454" font-weight="700">cₜ</tspan><tspan fill="#1F2937"> = </tspan><tspan fill="#C77D2E">fₜ</tspan><tspan fill="#1F2937"> ⊙ </tspan><tspan fill="#B85454" font-weight="700">cₜ₋₁</tspan><tspan fill="#1F2937">  +  </tspan><tspan fill="#C77D2E">iₜ</tspan><tspan fill="#1F2937"> ⊙ </tspan><tspan fill="#3F5F98">c̃ₜ</tspan></text>
+<text x="640" y="293" font-size="14" fill="#6B7280">남긴 옛 기억  +  넣은 새 기억   ← 덮어쓰기 없음</text>
+<rect x="30" y="341" width="118" height="30" rx="15" fill="#E3B071"/>
+<text x="89" y="361" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">③ output</text>
+<text x="170" y="363" font-size="21" font-family="Cambria Math, Times New Roman, serif" fill="#1F2937"><tspan fill="#C77D2E">oₜ</tspan><tspan fill="#1F2937"> = σ( W</tspan><tspan fill="#1F2937">o</tspan><tspan fill="#1F2937"> </tspan><tspan fill="#6B7280">[h</tspan><tspan fill="#6B7280">ₜ₋₁</tspan><tspan fill="#6B7280">, x</tspan><tspan fill="#6B7280">ₜ</tspan><tspan fill="#6B7280">]</tspan><tspan fill="#1F2937"> + b</tspan><tspan fill="#1F2937">o</tspan><tspan fill="#1F2937"> )</tspan></text>
+<text x="640" y="363" font-size="14" fill="#6B7280">c 에서  얼마나 꺼낼까</text>
+<rect x="30" y="401" width="118" height="30" rx="15" fill="#B3A6DF"/>
+<text x="89" y="421" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">출력 h</text>
+<text x="170" y="423" font-size="21" font-family="Cambria Math, Times New Roman, serif" fill="#1F2937"><tspan fill="#6B5B9E">hₜ</tspan><tspan fill="#1F2937"> = </tspan><tspan fill="#C77D2E">oₜ</tspan><tspan fill="#1F2937"> ⊙ tanh( </tspan><tspan fill="#B85454">cₜ</tspan><tspan fill="#1F2937"> )</tspan></text>
+<text x="640" y="423" font-size="14" fill="#6B7280">꺼낸 만큼이 h  →  다음 칸 · 분류기로</text><rect x="20" y="456" width="960" height="40" rx="8" fill="#F9FAFB" stroke="#E5E7EB"/>
+<rect x="30" y="467" width="14" height="14" rx="3" fill="#E3B071"/>
+<text x="50" y="479" font-size="13" fill="#374151">σ  Gate — 얼마나 (0~1)</text>
+<rect x="270" y="467" width="14" height="14" rx="3" fill="#8FAEDF"/>
+<text x="290" y="479" font-size="13" fill="#374151">tanh  새 후보 — 무엇을 (−1~1)</text>
+<rect x="510" y="467" width="14" height="14" rx="3" fill="#E08E8E"/>
+<text x="530" y="479" font-size="13" fill="#374151">파이프 c — 곱 · 더하기만</text>
+<rect x="750" y="467" width="14" height="14" rx="3" fill="#B3A6DF"/>
+<text x="770" y="479" font-size="13" fill="#374151">출력 h</text></svg>
