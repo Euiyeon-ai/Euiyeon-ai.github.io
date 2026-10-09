@@ -1,7 +1,7 @@
 +++
 title = '첫 글'
 date = 2026-08-11T00:00:00+09:00
-draft = false
+draft = true
 slug = 'hello-world'
 description = 'Hugo + PaperMod로 블로그를 열었다.'
 tags = ['blog']
