@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 470" width="720" height="470" role="img" aria-labelledby="t3 d3">
+  <title id="t3">SHAP 기여도를 기준값부터 최종 예측까지 차례로 더해가는 흐름</title>
+  <desc id="d3">기준값 40%에서 시작해 부채비율 높음이 25%p를 더해 65%가 되고, 소득 낮음이 18%p를 더해 83%가 되고, 신용거래 기간 김이 12%p를 빼서 최종 거절확률 71%가 되는 과정을 위에서 아래로 차례로 보여준다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .num{fill:#0b0b0b;font-size:22px;font-weight:800}
+    .numFinal{fill:#ffffff;font-size:24px;font-weight:800}
+    .lbl{fill:#52514e;font-size:12.5px}
+    .mut{fill:#898781;font-size:11px}
+    .pane{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.5}
+    .paneFinal{fill:#d03b3b;stroke:#d03b3b;stroke-width:1.5}
+    .arrow{stroke:#9c9b93;stroke-width:1.6;fill:none;marker-end:url(#tri)}
+    .pillBad{fill:#f7ecec;stroke:#d03b3b;stroke-width:1.2}
+    .pillGood{fill:#eaf5f0;stroke:#2f8f6f;stroke-width:1.2}
+    .txtBad{fill:#b32c2c;font-size:13px;font-weight:700}
+    .txtGood{fill:#227a5c;font-size:13px;font-weight:700}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl{fill:#ffffff}
+      .num{fill:#ffffff}
+      .lbl{fill:#c3c2b7}
+      .mut{fill:#8f8d87}
+      .pane{fill:#232322;stroke:#383835}
+      .arrow{stroke:#6b6a64}
+      .pillBad{fill:#2c2220;stroke:#a83030}
+      .pillGood{fill:#1e2c26;stroke:#3fa47c}
+      .txtBad{fill:#e08080}
+      .txtGood{fill:#6fcaa8}
+    }
+  </style>
+  <defs>
+    <marker id="tri" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9c9b93"/>
+    </marker>
+  </defs>
+  <rect class="bg" x=".5" y=".5" width="719" height="469" rx="10"/>
+  <text class="ttl" x="24" y="30">기준값에서 시작해서, feature 하나씩 더하고 빼면 최종 예측이 된다</text>
+
+  <!-- Box 1: 기준값 -->
+  <rect class="pane" x="230" y="52" width="260" height="56" rx="8"/>
+  <text class="lbl" x="360" y="70" text-anchor="middle">기준값 (평균적인 거절 확률)</text>
+  <text class="num" x="360" y="98" text-anchor="middle">40%</text>
+
+  <line class="arrow" x1="360" y1="108" x2="360" y2="140"/>
+  <rect class="pillBad" x="460" y="108" width="180" height="30" rx="15"/>
+  <text class="txtBad" x="550" y="128" text-anchor="middle">+25%p 부채비율 높음</text>
+
+  <!-- Box 2: 65% -->
+  <rect class="pane" x="230" y="142" width="260" height="56" rx="8"/>
+  <text class="lbl" x="360" y="160" text-anchor="middle">여기까지 누적</text>
+  <text class="num" x="360" y="188" text-anchor="middle">65%</text>
+
+  <line class="arrow" x1="360" y1="198" x2="360" y2="230"/>
+  <rect class="pillBad" x="460" y="198" width="180" height="30" rx="15"/>
+  <text class="txtBad" x="550" y="218" text-anchor="middle">+18%p 소득 낮음</text>
+
+  <!-- Box 3: 83% -->
+  <rect class="pane" x="230" y="232" width="260" height="56" rx="8"/>
+  <text class="lbl" x="360" y="250" text-anchor="middle">여기까지 누적</text>
+  <text class="num" x="360" y="278" text-anchor="middle">83%</text>
+
+  <line class="arrow" x1="360" y1="288" x2="360" y2="320"/>
+  <rect class="pillGood" x="460" y="288" width="200" height="30" rx="15"/>
+  <text class="txtGood" x="560" y="308" text-anchor="middle">−12%p 신용거래 기간 김</text>
+
+  <!-- Box 4: 최종 71% -->
+  <rect class="paneFinal" x="220" y="322" width="280" height="66" rx="8"/>
+  <text class="lbl" x="360" y="344" text-anchor="middle" style="fill:#ffffff">최종 예측 (거절 확률)</text>
+  <text class="numFinal" x="360" y="376" text-anchor="middle">71%</text>
+
+  <text class="mut" x="24" y="424">기준값 40%에서 출발해 오른쪽 말풍선만큼 더하고 빼면서 내려오면 최종 71%가 된다.</text>
+  <text class="mut" x="24" y="444">빨강 = 거절 쪽으로 밀어올린 feature · 초록 = 승인 쪽으로 끌어내린 feature</text>
+</svg>

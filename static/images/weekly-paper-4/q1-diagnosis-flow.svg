@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 350" width="720" height="350" role="img" aria-labelledby="t1 d1">
+  <title id="t1">train-test 성능차 진단 흐름</title>
+  <desc id="d1">train 99%, test 70%인 증상에서 시작해 학습 데이터 안에서 k-fold 교차검증을 해본다. CV 점수도 낮게 나오면 진짜 과적합이므로 모델 복잡도를 낮추거나 데이터 누수를 확인하고, CV 점수는 높은데 test에서만 낮다면 train과 test의 분포·수집 시점·대상 차이를 확인한다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:13.5px;font-weight:700}
+    .sub{fill:#52514e;font-size:12px}
+    .mut{fill:#898781;font-size:11.5px}
+    .pane{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.5}
+    .paneBad{fill:#f7ecec;stroke:#d03b3b;stroke-width:1.5}
+    .ax{stroke:#c3c2b7;stroke-width:1.6;fill:none;marker-end:url(#arrow)}
+    .bad{fill:#d03b3b}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .mut{fill:#8f8d87}
+      .pane{fill:#232322;stroke:#383835}
+      .paneBad{fill:#2c2220;stroke:#a83030}
+      .ax{stroke:#6b6a64}
+    }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c3c2b7"/>
+    </marker>
+  </defs>
+  <rect class="bg" x=".5" y=".5" width="719" height="349" rx="10"/>
+  <text class="ttl" x="24" y="30">증상 하나에 원인 후보는 두 갈래 — 교차검증으로 가른다</text>
+
+  <!-- 증상 -->
+  <rect class="paneBad" x="260" y="48" width="200" height="42" rx="8"/>
+  <text class="h" x="360" y="70" text-anchor="middle">Train 99% · Test 70%</text>
+  <text class="mut" x="360" y="84" text-anchor="middle">증상</text>
+
+  <line class="ax" x1="360" y1="90" x2="360" y2="118"/>
+
+  <!-- CV -->
+  <rect class="pane" x="210" y="120" width="300" height="42" rx="8"/>
+  <text class="h" x="360" y="142" text-anchor="middle">K-fold 교차검증</text>
+  <text class="mut" x="360" y="156" text-anchor="middle">train 데이터 안에서만 나눠서 확인</text>
+
+  <line class="ax" x1="290" y1="162" x2="170" y2="196"/>
+  <line class="ax" x1="430" y1="162" x2="550" y2="196"/>
+
+  <!-- 좌: CV도 낮다 -->
+  <rect class="paneBad" x="20" y="198" width="300" height="42" rx="8"/>
+  <text class="h" x="170" y="220" text-anchor="middle">CV도 ~70%로 낮다</text>
+  <text class="sub bad" x="170" y="234" text-anchor="middle">→ 진짜 과적합</text>
+
+  <line class="ax" x1="100" y1="240" x2="100" y2="268"/>
+  <line class="ax" x1="240" y1="240" x2="240" y2="268"/>
+
+  <rect class="pane" x="10" y="270" width="180" height="58" rx="8"/>
+  <text class="sub" x="100" y="292" text-anchor="middle">모델 복잡도 확인</text>
+  <text class="sub" x="100" y="308" text-anchor="middle">· 단순화</text>
+  <text class="mut" x="100" y="322" text-anchor="middle">max_depth ↓ 등</text>
+
+  <rect class="pane" x="200" y="270" width="180" height="58" rx="8"/>
+  <text class="sub" x="290" y="292" text-anchor="middle">데이터 누수 확인</text>
+  <text class="sub" x="290" y="308" text-anchor="middle">(타겟과 직결된</text>
+  <text class="mut" x="290" y="322" text-anchor="middle">컬럼이 섞였는지)</text>
+
+  <!-- 우: CV는 높다 -->
+  <rect class="pane" x="400" y="198" width="300" height="42" rx="8"/>
+  <text class="h" x="550" y="220" text-anchor="middle">CV는 ~99%로 높다</text>
+  <text class="sub" x="550" y="234" text-anchor="middle">→ test에서만 낮다</text>
+
+  <line class="ax" x1="550" y1="240" x2="550" y2="268"/>
+
+  <rect class="pane" x="410" y="270" width="280" height="58" rx="8"/>
+  <text class="sub" x="550" y="292" text-anchor="middle">train ↔ test 변수 분포, 클래스 비율,</text>
+  <text class="sub" x="550" y="308" text-anchor="middle">수집 시점·대상 차이 확인</text>
+  <text class="mut" x="550" y="322" text-anchor="middle">= 데이터 드리프트 의심</text>
+</svg>
