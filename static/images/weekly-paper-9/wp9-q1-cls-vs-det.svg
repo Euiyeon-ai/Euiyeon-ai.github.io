@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" width="720" height="360" role="img" aria-labelledby="t1 d1">
+  <title id="t1">이미지 분류와 객체 인식의 출력 비교</title>
+  <desc id="d1">같은 진열대 사진에 대해 이미지 분류는 '음료 진열대'라는 라벨 하나만 출력해 개수와 위치를 알 수 없다. 객체 인식은 상품마다 박스와 종류를 출력해 콜라 3개, 사이다 1개, 생수 5개와 각 위치, 그리고 박스가 없는 빈 칸 3곳을 알 수 있다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:13.5px;font-weight:700}
+    .sub{fill:#52514e;font-size:12px}
+    .mut{fill:#898781;font-size:11.5px}
+    .panel{fill:none;stroke:#c3c2b7;stroke-width:1;stroke-dasharray:4 4}
+    .shelf{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.2}
+    .board{stroke:#9a988f;stroke-width:3;stroke-linecap:round}
+    .gap{fill:none;stroke:#c3c2b7;stroke-width:1.2;stroke-dasharray:3 3}
+    .cola{fill:#c8433b}.cider{fill:#3f8f5a}.water{fill:#4a7fc1}
+    .cap{fill:#ffffff;opacity:.55}
+    .bxC{fill:none;stroke:#c8433b;stroke-width:2}
+    .bxS{fill:none;stroke:#3f8f5a;stroke-width:2}
+    .bxW{fill:none;stroke:#4a7fc1;stroke-width:2}
+    .out{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1}
+    .outT{fill:#0b0b0b;font-size:12.5px;font-weight:600}
+    .bad{fill:#d03b3b;font-size:12px;font-weight:700}
+    .good{fill:#3f8f5a;font-size:12px;font-weight:700}
+    .num{font-variant-numeric:tabular-nums}
+    .stage{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.2}
+    .arr{stroke:#898781;stroke-width:1.5;fill:none}
+    .arrh{fill:#898781}
+    .dot{fill:#c3c2b7}
+    .cand{fill:none;stroke:#e3b071;stroke-width:1}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h,.outT{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .mut{fill:#8f8d87}
+      .panel{stroke:#383835}
+      .shelf,.out,.stage{fill:#232322;stroke:#383835}
+      .board{stroke:#6b6a64}
+      .gap{stroke:#55534e}
+      .dot{fill:#4a4944}
+      .cap{fill:#000000;opacity:.25}
+    }
+  </style>
+  <rect class="bg" x=".5" y=".5" width="719" height="359" rx="10"/>
+  <text class="ttl" x="24" y="30">같은 진열대 사진, 다른 출력</text>
+  <text class="mut" x="24" y="50">점선 칸 = 상품이 빠진 자리</text>
+
+  <rect class="panel" x="16" y="62" width="336" height="282" rx="8"/>
+  <text class="h" x="32" y="86">이미지 분류</text>
+  <text class="sub" x="122" y="86">사진 1장 → 라벨 1개</text>
+  <g>
+    <rect class="shelf" x="39" y="98" width="290" height="150" rx="6"/>
+    <line class="board" x1="47" y1="164" x2="321" y2="164"/>
+    <rect class="cola" x="55" y="116" width="30" height="46" rx="5"/>
+    <rect class="cap" x="60" y="122" width="20" height="8" rx="2"/>
+    <rect class="cola" x="100" y="116" width="30" height="46" rx="5"/>
+    <rect class="cap" x="105" y="122" width="20" height="8" rx="2"/>
+    <rect class="cola" x="145" y="116" width="30" height="46" rx="5"/>
+    <rect class="cap" x="150" y="122" width="20" height="8" rx="2"/>
+    <rect class="gap" x="190" y="116" width="30" height="46" rx="4"/>
+    <rect class="cider" x="235" y="116" width="30" height="46" rx="5"/>
+    <rect class="cap" x="240" y="122" width="20" height="8" rx="2"/>
+    <rect class="gap" x="280" y="116" width="30" height="46" rx="4"/>
+    <line class="board" x1="47" y1="234" x2="321" y2="234"/>
+    <rect class="water" x="55" y="182" width="30" height="50" rx="8"/>
+    <rect class="cap" x="60" y="188" width="20" height="8" rx="2"/>
+    <rect class="water" x="100" y="182" width="30" height="50" rx="8"/>
+    <rect class="cap" x="105" y="188" width="20" height="8" rx="2"/>
+    <rect class="water" x="145" y="182" width="30" height="50" rx="8"/>
+    <rect class="cap" x="150" y="188" width="20" height="8" rx="2"/>
+    <rect class="water" x="190" y="182" width="30" height="50" rx="8"/>
+    <rect class="cap" x="195" y="188" width="20" height="8" rx="2"/>
+    <rect class="water" x="235" y="182" width="30" height="50" rx="8"/>
+    <rect class="cap" x="240" y="188" width="20" height="8" rx="2"/>
+    <rect class="gap" x="280" y="186" width="30" height="46" rx="4"/>
+  </g>
+  <rect class="out" x="32" y="262" width="304" height="68" rx="6"/>
+  <text class="outT" x="44" y="284">출력 : "음료 진열대" (0.97)</text>
+  <text class="bad" x="44" y="306">✗ 몇 개?   ✗ 어디에?   ✗ 빈 칸은?</text>
+  <text class="mut" x="44" y="323">콜라가 3개든 30개든 같은 답</text>
+
+  <rect class="panel" x="368" y="62" width="336" height="282" rx="8"/>
+  <text class="h" x="384" y="86">객체 인식 (탐지)</text>
+  <text class="sub" x="492" y="86">상품마다 박스 + 종류 + 점수</text>
+  <g>
+    <rect class="shelf" x="391" y="98" width="290" height="150" rx="6"/>
+    <line class="board" x1="399" y1="164" x2="673" y2="164"/>
+    <rect class="cola" x="407" y="116" width="30" height="46" rx="5"/>
+    <rect class="cap" x="412" y="122" width="20" height="8" rx="2"/>
+    <rect class="bxC" x="404" y="113" width="36" height="52" rx="2"/>
+    <rect class="cola" x="452" y="116" width="30" height="46" rx="5"/>
+    <rect class="cap" x="457" y="122" width="20" height="8" rx="2"/>
+    <rect class="bxC" x="449" y="113" width="36" height="52" rx="2"/>
+    <rect class="cola" x="497" y="116" width="30" height="46" rx="5"/>
+    <rect class="cap" x="502" y="122" width="20" height="8" rx="2"/>
+    <rect class="bxC" x="494" y="113" width="36" height="52" rx="2"/>
+    <rect class="gap" x="542" y="116" width="30" height="46" rx="4"/>
+    <rect class="cider" x="587" y="116" width="30" height="46" rx="5"/>
+    <rect class="cap" x="592" y="122" width="20" height="8" rx="2"/>
+    <rect class="bxS" x="584" y="113" width="36" height="52" rx="2"/>
+    <rect class="gap" x="632" y="116" width="30" height="46" rx="4"/>
+    <line class="board" x1="399" y1="234" x2="673" y2="234"/>
+    <rect class="water" x="407" y="182" width="30" height="50" rx="8"/>
+    <rect class="cap" x="412" y="188" width="20" height="8" rx="2"/>
+    <rect class="bxW" x="404" y="179" width="36" height="56" rx="2"/>
+    <rect class="water" x="452" y="182" width="30" height="50" rx="8"/>
+    <rect class="cap" x="457" y="188" width="20" height="8" rx="2"/>
+    <rect class="bxW" x="449" y="179" width="36" height="56" rx="2"/>
+    <rect class="water" x="497" y="182" width="30" height="50" rx="8"/>
+    <rect class="cap" x="502" y="188" width="20" height="8" rx="2"/>
+    <rect class="bxW" x="494" y="179" width="36" height="56" rx="2"/>
+    <rect class="water" x="542" y="182" width="30" height="50" rx="8"/>
+    <rect class="cap" x="547" y="188" width="20" height="8" rx="2"/>
+    <rect class="bxW" x="539" y="179" width="36" height="56" rx="2"/>
+    <rect class="water" x="587" y="182" width="30" height="50" rx="8"/>
+    <rect class="cap" x="592" y="188" width="20" height="8" rx="2"/>
+    <rect class="bxW" x="584" y="179" width="36" height="56" rx="2"/>
+    <rect class="gap" x="632" y="186" width="30" height="46" rx="4"/>
+  </g>
+  <rect class="out" x="384" y="262" width="304" height="68" rx="6"/>
+  <text class="outT num" x="396" y="284">출력 9개 : 콜라 3 · 사이다 1 · 생수 5</text>
+  <text class="good" x="396" y="306">✓ 개수 = 박스 수   ✓ 위치 = 박스 좌표</text>
+  <text class="mut" x="396" y="323">빈 칸 3 = 박스 사이의 빈 간격으로 찾음</text>
+</svg>

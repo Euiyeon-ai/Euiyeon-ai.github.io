@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" width="720" height="260" role="img" aria-labelledby="t5 d5">
+  <title id="t5">미니배치 학습 구조</title>
+  <desc id="d5">100만 개 데이터가 CPU 메모리에 있고, DataLoader가 64개씩 잘라 GPU로 보낸다. GPU에는 한 번에 배치 하나만 올라가고, 배치마다 forward, loss, backward, update를 수행한다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:13px;font-weight:700}
+    .sub{fill:#52514e;font-size:12px}
+    .mut{fill:#898781;font-size:11px}
+    .pane{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.5}
+    .paneOk{fill:#eaf3ec;stroke:#3f8f5a;stroke-width:1.5}
+    .chip{fill:#e4e4df;stroke:#c3c2b7;stroke-width:1}
+    .chipOn{fill:#3f8f5a;stroke:#3f8f5a;stroke-width:1}
+    .ax{stroke:#c3c2b7;stroke-width:1.6;fill:none;marker-end:url(#arrow)}
+    .good{fill:#3f8f5a;font-size:12px;font-weight:700}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h{fill:#ffffff} .sub{fill:#c3c2b7} .mut{fill:#8f8d87}
+      .pane{fill:#232322;stroke:#383835}
+      .paneOk{fill:#1f2a22;stroke:#3f8f5a}
+      .chip{fill:#333331;stroke:#4a4a47}
+      .ax{stroke:#6b6a64}
+    }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c3c2b7"/>
+    </marker>
+  </defs>
+  <rect class="bg" x=".5" y=".5" width="719" height="259" rx="10"/>
+  <text class="ttl" x="24" y="30">GPU에는 한 번에 배치 하나만 올라간다</text>
+
+  <rect class="pane" x="24" y="56" width="250" height="170" rx="8"/>
+  <text class="h" x="40" y="80">CPU 메모리 (100만 개)</text>
+  <rect class="chipOn" x="40" y="96" width="40" height="18" rx="3"/>
+  <rect class="chip" x="86" y="96" width="40" height="18" rx="3"/>
+  <rect class="chip" x="132" y="96" width="40" height="18" rx="3"/>
+  <rect class="chip" x="178" y="96" width="40" height="18" rx="3"/>
+  <rect class="chip" x="224" y="96" width="40" height="18" rx="3"/>
+  <rect class="chip" x="40" y="120" width="40" height="18" rx="3"/>
+  <rect class="chip" x="86" y="120" width="40" height="18" rx="3"/>
+  <rect class="chip" x="132" y="120" width="40" height="18" rx="3"/>
+  <rect class="chip" x="178" y="120" width="40" height="18" rx="3"/>
+  <rect class="chip" x="224" y="120" width="40" height="18" rx="3"/>
+  <rect class="chip" x="40" y="144" width="40" height="18" rx="3"/>
+  <rect class="chip" x="86" y="144" width="40" height="18" rx="3"/>
+  <rect class="chip" x="132" y="144" width="40" height="18" rx="3"/>
+  <rect class="chip" x="178" y="144" width="40" height="18" rx="3"/>
+  <rect class="chip" x="224" y="144" width="40" height="18" rx="3"/>
+  <text class="mut" x="40" y="182">한 칸 = 배치 64개</text>
+  <text class="mut" x="40" y="198">64개씩 자르면 한 epoch에 약 15,600개 배치</text>
+  <text class="mut" x="40" y="214">shuffle=True 로 매 epoch 섞음</text>
+
+  <line class="ax" x1="274" y1="140" x2="330" y2="140"/>
+  <text class="h" x="302" y="126" text-anchor="middle">DataLoader</text>
+  <text class="mut" x="302" y="158" text-anchor="middle">배치 하나씩</text>
+
+  <rect class="paneOk" x="334" y="56" width="362" height="170" rx="8"/>
+  <text class="h" x="350" y="80">GPU 메모리</text>
+  <rect class="chipOn" x="350" y="96" width="40" height="18" rx="3"/>
+  <text class="good" x="398" y="110">배치 1개 (64개)만 올라옴</text>
+  <text class="sub" x="350" y="140">1. forward : 예측</text>
+  <text class="sub" x="350" y="160">2. loss : 틀린 만큼</text>
+  <text class="sub" x="350" y="180">3. backward : 방향</text>
+  <text class="sub" x="350" y="200">4. update : 가중치 수정</text>
+  <text class="mut" x="540" y="170">배치가 바뀔 때마다</text>
+  <text class="mut" x="540" y="186">1~4 반복</text>
+
+  <text class="mut" x="360" y="246" text-anchor="middle">문제는 "다 올릴 수 있냐"가 아니라 "배치 하나를 몇 개로 하냐"</text>
+</svg>

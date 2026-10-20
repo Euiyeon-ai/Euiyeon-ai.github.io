@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" font-family="Malgun Gothic, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1F2937"/></marker>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#B91C1C"/></marker>
+    <marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1E3A8A"/></marker>
+  </defs>
+  <rect width="1000" height="360" fill="#FFFFFF"/>
+
+  <!-- c 파이프 -->
+  <line x1="110" y1="90" x2="640" y2="90" stroke="#B91C1C" stroke-width="5" marker-end="url(#ar)"/>
+  <text x="100" y="95" text-anchor="end" font-size="15" font-weight="700" fill="#B91C1C">c이전</text>
+  <text x="655" y="95" font-size="15" font-weight="700" fill="#B91C1C">c새</text>
+  <text x="375" y="60" text-anchor="middle" font-size="12" fill="#B91C1C">파이프 c — 곱하기 · 더하기만</text>
+
+  <!-- ① 지우개 밸브 -->
+  <circle cx="240" cy="90" r="18" fill="#fff" stroke="#B91C1C" stroke-width="2.5"/>
+  <text x="240" y="96" text-anchor="middle" font-size="18" fill="#B91C1C">×</text>
+  <rect x="180" y="180" width="120" height="50" rx="10" fill="#FEF3C7" stroke="#B45309" stroke-width="2"/>
+  <text x="240" y="200" text-anchor="middle" font-size="13" font-weight="700" fill="#B45309">① σ  얼마나 남길까</text>
+  <text x="240" y="219" text-anchor="middle" font-size="12" fill="#78350F">0 ~ 1</text>
+  <line x1="240" y1="180" x2="240" y2="110" stroke="#1F2937" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- ⊕ -->
+  <circle cx="480" cy="90" r="18" fill="#fff" stroke="#B91C1C" stroke-width="2.5"/>
+  <text x="480" y="97" text-anchor="middle" font-size="20" fill="#B91C1C" font-weight="700">+</text>
+
+  <!-- ② input : 무엇을 × 얼마나 -->
+  <circle cx="480" cy="150" r="15" fill="#fff" stroke="#15803D" stroke-width="2.5"/>
+  <text x="480" y="156" text-anchor="middle" font-size="16" fill="#15803D">×</text>
+  <line x1="480" y1="135" x2="480" y2="110" stroke="#1F2937" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="340" y="180" width="120" height="50" rx="10" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="2"/>
+  <text x="400" y="200" text-anchor="middle" font-size="13" font-weight="700" fill="#1E3A8A">tanh  무엇을 넣을까</text>
+  <text x="400" y="219" text-anchor="middle" font-size="12" fill="#1E40AF">−1 ~ 1  (내용)</text>
+  <path d="M400 180 L400 150 L463 150" fill="none" stroke="#1F2937" stroke-width="2" marker-end="url(#a)"/>
+
+  <rect x="500" y="180" width="120" height="50" rx="10" fill="#FEF3C7" stroke="#B45309" stroke-width="2"/>
+  <text x="560" y="200" text-anchor="middle" font-size="13" font-weight="700" fill="#B45309">② σ  얼마나 넣을까</text>
+  <text x="560" y="219" text-anchor="middle" font-size="12" fill="#78350F">0 ~ 1  (양)</text>
+  <path d="M560 180 L560 150 L497 150" fill="none" stroke="#1F2937" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- 묶음 표시 -->
+  <rect x="330" y="128" width="240" height="112" rx="12" fill="none" stroke="#15803D" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="240" y="255" text-anchor="middle" font-size="12" fill="#15803D">① forget = c이전 × 남길 양</text>
+  <text x="840" y="332" text-anchor="middle" font-size="12" fill="#15803D">③ output = tanh(c새) × 꺼낼 양</text>
+  <text x="450" y="255" text-anchor="middle" font-size="12" fill="#15803D">② input = 무엇을 × 얼마나 — 둘로 나눔</text>
+
+  <!-- ③ output -->
+  <line x1="620" y1="90" x2="620" y2="90" stroke="none"/>
+  <path d="M600 90 L600 300 L740 300" fill="none" stroke="#1F2937" stroke-width="2"/>
+  <circle cx="760" cy="300" r="20" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="2"/>
+  <text x="760" y="305" text-anchor="middle" font-size="11" fill="#1E3A8A" font-weight="700">tanh</text>
+  <line x1="780" y1="300" x2="823" y2="300" stroke="#1F2937" stroke-width="2" marker-end="url(#a)"/>
+  <circle cx="840" cy="300" r="15" fill="#fff" stroke="#6D28D9" stroke-width="2.5"/>
+  <text x="840" y="306" text-anchor="middle" font-size="16" fill="#6D28D9">×</text>
+  <line x1="855" y1="300" x2="930" y2="300" stroke="#1E3A8A" stroke-width="3" marker-end="url(#ab)"/>
+  <text x="945" y="305" font-size="15" font-weight="700" fill="#1E3A8A">h새</text>
+  <rect x="780" y="200" width="120" height="50" rx="10" fill="#FEF3C7" stroke="#B45309" stroke-width="2"/>
+  <text x="840" y="220" text-anchor="middle" font-size="13" font-weight="700" fill="#B45309">③ σ  얼마나 꺼낼까</text>
+  <text x="840" y="239" text-anchor="middle" font-size="12" fill="#78350F">0 ~ 1</text>
+  <line x1="840" y1="250" x2="840" y2="283" stroke="#1F2937" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- 범례 -->
+  <rect x="60" y="290" width="470" height="52" rx="9" fill="#F9FAFB" stroke="#E5E7EB"/>
+  <rect x="75" y="303" width="14" height="14" rx="3" fill="#FEF3C7" stroke="#B45309" stroke-width="1.5"/>
+  <text x="96" y="315" font-size="13" fill="#374151"><tspan font-weight="700" fill="#B45309">σ Gate</tspan> = 얼마나 (0~1)</text>
+  <rect x="75" y="322" width="14" height="14" rx="3" fill="#DBEAFE" stroke="#1E3A8A" stroke-width="1.5"/>
+  <text x="96" y="334" font-size="13" fill="#374151"><tspan font-weight="700" fill="#1E3A8A">tanh 새것</tspan> = 무엇을 (−1~1)</text>
+  <text x="300" y="315" font-size="12" fill="#6B7280">Gate ①②③ 은 전부 같은 σ 모양</text>
+  <text x="300" y="334" font-size="12" fill="#6B7280">tanh 는 "넣을 내용" 하나뿐</text>
+</svg>

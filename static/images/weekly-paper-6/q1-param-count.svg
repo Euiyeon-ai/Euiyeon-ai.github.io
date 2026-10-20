@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 250" width="760" height="250" role="img" aria-labelledby="t2 d2">
+  <title id="t2">완전연결층과 합성곱층의 파라미터 수 비교 (로그 축)</title>
+  <desc id="d2">가로 막대 셋. 완전연결 100×100 흑백 → 뉴런 256개는 약 256만 개, 완전연결 224×224 컬러 → 256개는 약 3,850만 개. 합성곱 3×3 필터 32개는 320개로, 사진 크기와 무관하다. 축은 10배씩 커지는 로그 축이다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .lab{fill:#0b0b0b;font-size:12.5px}
+    .val{fill:#0b0b0b;font-size:12.5px;font-weight:700}
+    .sub{fill:#52514e;font-size:12px}
+    .mut{fill:#898781;font-size:11px}
+    .grid{stroke:rgba(11,11,11,.08);stroke-width:1}
+    .axis{stroke:#c3c2b7;stroke-width:1.2}
+    .fc{fill:#2a78d6}
+    .cnn{fill:#eb6834}
+    .note{fill:#eb6834;font-size:12px;font-weight:700}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.lab,.val{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .mut{fill:#8f8d87}
+      .grid{stroke:rgba(255,255,255,.08)}
+      .axis{stroke:#6b6a64}
+      .fc{fill:#3987e5}
+      .cnn{fill:#d95926}
+      .note{fill:#d95926}
+    }
+  </style>
+  <rect class="bg" x=".5" y=".5" width="759" height="249" rx="10"/>
+  <text class="ttl" x="24" y="30">첫 번째 층의 파라미터 수 (로그 축: 눈금 하나 = 10배)</text>
+  <text class="sub" x="24" y="50">FC는 사진 크기에 비례해 늘어나고, Conv는 사진 크기와 상관없다</text>
+
+  <!-- axis: x0=230, 60px per decade, 10^0..10^8 -> 230..710 -->
+  <g class="grid">
+    <line x1="230" y1="70" x2="230" y2="190"/><line x1="290" y1="70" x2="290" y2="190"/><line x1="350" y1="70" x2="350" y2="190"/><line x1="410" y1="70" x2="410" y2="190"/><line x1="470" y1="70" x2="470" y2="190"/><line x1="530" y1="70" x2="530" y2="190"/><line x1="590" y1="70" x2="590" y2="190"/><line x1="650" y1="70" x2="650" y2="190"/><line x1="710" y1="70" x2="710" y2="190"/>
+  </g>
+  <line class="axis" x1="230" y1="190" x2="710" y2="190"/>
+  <text class="mut" x="230" y="207" text-anchor="middle">1</text>
+  <text class="mut" x="290" y="207" text-anchor="middle">10</text>
+  <text class="mut" x="350" y="207" text-anchor="middle">100</text>
+  <text class="mut" x="410" y="207" text-anchor="middle">1천</text>
+  <text class="mut" x="470" y="207" text-anchor="middle">1만</text>
+  <text class="mut" x="530" y="207" text-anchor="middle">10만</text>
+  <text class="mut" x="590" y="207" text-anchor="middle">100만</text>
+  <text class="mut" x="650" y="207" text-anchor="middle">1천만</text>
+  <text class="mut" x="710" y="207" text-anchor="middle">1억</text>
+  <text class="mut" x="470" y="230" text-anchor="middle">파라미터 수 (가중치 + 편향)</text>
+
+  <!-- bar 1: FC 100x100 gray -> 256 : 2,560,256 -> log10 = 6.408 -> 230+384.5 -->
+  <text class="lab" x="218" y="90" text-anchor="end">FC · 100×100 흑백 → 256</text>
+  <rect class="fc" x="230" y="78" width="384" height="18" rx="0"/>
+  <rect class="fc" x="610" y="78" width="4" height="18" rx="4"/>
+  <text class="val" x="622" y="92">256만</text>
+
+  <!-- bar 2: FC 224x224 rgb -> 256 : 38,535,168 -> log10 = 7.586 -> 230+455 -->
+  <text class="lab" x="218" y="126" text-anchor="end">FC · 224×224 컬러 → 256</text>
+  <rect class="fc" x="230" y="114" width="455" height="18"/>
+  <rect class="fc" x="681" y="114" width="4" height="18" rx="4"/>
+  <text class="val" x="693" y="128">3,850만</text>
+
+  <!-- bar 3: Conv 3x3, 32 filters : 320 -> log10 = 2.505 -> 230+150 -->
+  <text class="lab" x="218" y="162" text-anchor="end">Conv · 3×3 필터 32개</text>
+  <rect class="cnn" x="230" y="150" width="150" height="18"/>
+  <rect class="cnn" x="376" y="150" width="4" height="18" rx="4"/>
+  <text class="val" x="388" y="164">320</text>
+  <text class="note" x="430" y="164">← 사진이 커져도 320 그대로</text>
+</svg>

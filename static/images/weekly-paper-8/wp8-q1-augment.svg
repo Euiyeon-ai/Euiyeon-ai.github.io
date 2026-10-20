@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" width="720" height="250" role="img" aria-labelledby="t1 d1">
+  <title id="t1">데이터 증강: 사진 한 장을 여러 모습으로</title>
+  <desc id="d1">스크래치가 있는 불량 제품 사진 한 장을 회전, 좌우 반전, 어둡게, 조금 이동으로 바꾸면 모두 여전히 불량으로 판단할 수 있다. 반면 강하게 잘라 내면 스크래치가 사라져 정답이 바뀌므로 쓰면 안 된다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:13px;font-weight:700}
+    .sub{fill:#52514e;font-size:12px}
+    .mut{fill:#898781;font-size:11.5px}
+    .panel{fill:none;stroke:#c3c2b7;stroke-width:1;stroke-dasharray:4 4}
+    .tile{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.2}
+    .prod{fill:#d9d7d0;stroke:#9a988f;stroke-width:1.2}
+    .prodD{fill:#a8a69e;stroke:#77756d;stroke-width:1.2}
+    .scr{stroke:#d03b3b;stroke-width:3;stroke-linecap:round}
+    .ok{fill:#eaf3ec;stroke:#3f8f5a;stroke-width:1.5}
+    .badb{fill:#f7ecec;stroke:#d03b3b;stroke-width:1.5}
+    .grey{fill:#eeede8;stroke:#c3c2b7;stroke-width:1.2}
+    .arr{stroke:#898781;stroke-width:1.5;fill:none}
+    .bad{fill:#d03b3b;font-size:12px;font-weight:700}
+    .good{fill:#3f8f5a;font-size:12px;font-weight:700}
+    .dotN{fill:#c3c2b7}
+    .dotP{fill:#d03b3b}
+    .barS{fill:#e3b071}
+    .barP{fill:#3f8f5a}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .mut{fill:#8f8d87}
+      .panel{stroke:#383835}
+      .tile,.grey{fill:#232322;stroke:#383835}
+      .prod{fill:#4a4944;stroke:#6b6a64}
+      .prodD{fill:#2e2d2a;stroke:#4a4944}
+      .ok{fill:#1f2a22;stroke:#3f8f5a}
+      .badb{fill:#2c2220;stroke:#a83030}
+      .dotN{fill:#4a4944}
+    }
+  </style>
+  <defs><clipPath id="c"><rect x="0" y="0" width="90" height="90" rx="6"/></clipPath></defs>
+  <rect class="bg" x=".5" y=".5" width="719" height="249" rx="10"/>
+  <text class="ttl" x="24" y="30">증강 = 사진 1장을 여러 모습으로 보여 주기 (정답 '불량'은 그대로)</text>
+  <text class="mut" x="24" y="50">빨간 선 = 불량의 단서(스크래치)</text>
+  <g transform="translate(24,70)">
+    <rect class="tile" x="0" y="0" width="90" height="90" rx="6"/>
+    <rect class="prod" x="18" y="18" width="54" height="54" rx="6"/>
+    <line class="scr" x1="30" y1="34" x2="52" y2="52"/>
+  </g>
+  <path class="arr" d="M124 115 H150 M144 109 L150 115 L144 121"/>
+  <g transform="translate(160,70)">
+    <rect class="tile" x="0" y="0" width="90" height="90" rx="6"/>
+    <g transform="rotate(15 45 45)">
+    <rect class="prod" x="18" y="18" width="54" height="54" rx="6"/>
+    <line class="scr" x1="30" y1="34" x2="52" y2="52"/>
+    </g>
+  </g>
+  <g transform="translate(262,70)">
+    <rect class="tile" x="0" y="0" width="90" height="90" rx="6"/>
+    <rect class="prod" x="18" y="18" width="54" height="54" rx="6"/>
+    <line class="scr" x1="60" y1="34" x2="38" y2="52"/>
+  </g>
+  <g transform="translate(364,70)">
+    <rect class="tile" x="0" y="0" width="90" height="90" rx="6"/>
+    <rect class="prodD" x="18" y="18" width="54" height="54" rx="6"/>
+    <line class="scr" x1="30" y1="34" x2="52" y2="52"/>
+  </g>
+  <g transform="translate(466,70)">
+    <rect class="tile" x="0" y="0" width="90" height="90" rx="6"/>
+    <g transform="translate(8,6)">
+    <rect class="prod" x="18" y="18" width="54" height="54" rx="6"/>
+    <line class="scr" x1="30" y1="34" x2="52" y2="52"/>
+    </g>
+  </g>
+  <line x1="578" y1="62" x2="578" y2="200" stroke="#c3c2b7" stroke-dasharray="4 4"/>
+  <g transform="translate(600,70)">
+    <rect class="tile" x="0" y="0" width="90" height="90" rx="6"/>
+    <g clip-path="url(#c)"><rect class="prod" x="18" y="18" width="220" height="220" rx="14"/></g>
+    <line x1="10" y1="10" x2="80" y2="80" stroke="#d03b3b" stroke-width="2.5"/>
+    <line x1="80" y1="10" x2="10" y2="80" stroke="#d03b3b" stroke-width="2.5"/>
+  </g>
+  <text class="mut" x="69" y="180" text-anchor="middle">원본</text>
+  <text class="sub" x="205" y="180" text-anchor="middle">회전</text>
+  <text class="sub" x="307" y="180" text-anchor="middle">좌우 반전</text>
+  <text class="sub" x="409" y="180" text-anchor="middle">어둡게</text>
+  <text class="sub" x="511" y="180" text-anchor="middle">조금 이동</text>
+  <text class="sub" x="645" y="180" text-anchor="middle">강하게 자르기</text>
+  <text class="good" x="335" y="210" text-anchor="middle">모두 여전히 '불량'으로 보임 → OK</text>
+  <text class="bad" x="645" y="210" text-anchor="middle">스크래치가 잘려 나감</text>
+  <text class="bad" x="645" y="226" text-anchor="middle">→ 정답이 바뀜, 금지</text>
+</svg>

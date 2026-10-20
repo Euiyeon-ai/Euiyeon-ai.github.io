@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" width="760" height="260" role="img" aria-labelledby="t4 d4">
+  <title id="t4">최대 풀링이 작은 위치 변화를 흡수하는 과정</title>
+  <desc id="d4">4×4 특징 맵을 2×2 창으로 나눠 각 창의 최대값만 남기면 2×2가 된다. 왼쪽은 반응이 (1,1) 칸, 오른쪽은 반응이 한 칸 옆 (1,2) 칸에 있지만, 둘 다 같은 2×2 창에 속하므로 풀링 결과는 똑같다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:13px;font-weight:700}
+    .sub{fill:#52514e;font-size:12px}
+    .mut{fill:#898781;font-size:11.5px}
+    .c0{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1}
+    .c1{fill:#fbe2d6;stroke:#c3c2b7;stroke-width:1}
+    .c9{fill:#eb6834;stroke:#eb6834;stroke-width:1}
+    .n{fill:#0b0b0b;font-size:12px;font-weight:700}
+    .nw{fill:#ffffff;font-size:12px;font-weight:700}
+    .win{fill:none;stroke:#2a78d6;stroke-width:2}
+    .arr{stroke:#c3c2b7;stroke-width:1.6;fill:none;marker-end:url(#ar2)}
+    .good{fill:#eb6834;font-size:12.5px;font-weight:700}
+    .blue{fill:#2a78d6;font-size:12px;font-weight:700}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .mut{fill:#8f8d87}
+      .c0{fill:#232322;stroke:#383835}
+      .c1{fill:#3a2a22;stroke:#383835}
+      .c9{fill:#d95926;stroke:#d95926}
+      .n{fill:#ffffff}
+      .win{stroke:#3987e5}
+      .arr{stroke:#6b6a64}
+      .good{fill:#d95926}
+      .blue{fill:#3987e5}
+    }
+  </style>
+  <defs>
+    <marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c3c2b7"/>
+    </marker>
+  </defs>
+  <rect class="bg" x=".5" y=".5" width="759" height="259" rx="10"/>
+  <text class="ttl" x="24" y="30">풀링: 2×2 창에서 최대값만 남긴다 → 한 칸 움직여도 결과 같음</text>
+  <text class="sub" x="24" y="50">특징 맵(합성곱 출력)에 최대 풀링을 적용한 예. 숫자는 "귀 모양이 얼마나 보이나"</text>
+
+  <!-- ===== LEFT case: response at (1,1) ===== -->
+  <text class="h" x="120" y="82" text-anchor="middle">고양이 귀가 왼쪽 위</text>
+  <g>
+    <rect class="c9" x="60" y="92" width="30" height="30"/><rect class="c1" x="90" y="92" width="30" height="30"/><rect class="c0" x="120" y="92" width="30" height="30"/><rect class="c0" x="150" y="92" width="30" height="30"/>
+    <rect class="c1" x="60" y="122" width="30" height="30"/><rect class="c1" x="90" y="122" width="30" height="30"/><rect class="c0" x="120" y="122" width="30" height="30"/><rect class="c0" x="150" y="122" width="30" height="30"/>
+    <rect class="c0" x="60" y="152" width="30" height="30"/><rect class="c0" x="90" y="152" width="30" height="30"/><rect class="c0" x="120" y="152" width="30" height="30"/><rect class="c0" x="150" y="152" width="30" height="30"/>
+    <rect class="c0" x="60" y="182" width="30" height="30"/><rect class="c0" x="90" y="182" width="30" height="30"/><rect class="c0" x="120" y="182" width="30" height="30"/><rect class="c0" x="150" y="182" width="30" height="30"/>
+  </g>
+  <text class="nw" x="75" y="111" text-anchor="middle">9</text><text class="n" x="105" y="111" text-anchor="middle">2</text><text class="n" x="135" y="111" text-anchor="middle">0</text><text class="n" x="165" y="111" text-anchor="middle">0</text>
+  <text class="n" x="75" y="141" text-anchor="middle">1</text><text class="n" x="105" y="141" text-anchor="middle">1</text><text class="n" x="135" y="141" text-anchor="middle">0</text><text class="n" x="165" y="141" text-anchor="middle">0</text>
+  <text class="n" x="75" y="171" text-anchor="middle">0</text><text class="n" x="105" y="171" text-anchor="middle">0</text><text class="n" x="135" y="171" text-anchor="middle">0</text><text class="n" x="165" y="171" text-anchor="middle">0</text>
+  <text class="n" x="75" y="201" text-anchor="middle">0</text><text class="n" x="105" y="201" text-anchor="middle">0</text><text class="n" x="135" y="201" text-anchor="middle">0</text><text class="n" x="165" y="201" text-anchor="middle">0</text>
+  <rect class="win" x="60" y="92" width="60" height="60"/>
+  <line class="arr" x1="192" y1="152" x2="228" y2="152"/>
+  <text class="mut" x="210" y="142" text-anchor="middle">max</text>
+  <g>
+    <rect class="c9" x="240" y="122" width="30" height="30"/><rect class="c0" x="270" y="122" width="30" height="30"/>
+    <rect class="c0" x="240" y="152" width="30" height="30"/><rect class="c0" x="270" y="152" width="30" height="30"/>
+  </g>
+  <text class="nw" x="255" y="141" text-anchor="middle">9</text><text class="n" x="285" y="141" text-anchor="middle">0</text>
+  <text class="n" x="255" y="171" text-anchor="middle">0</text><text class="n" x="285" y="171" text-anchor="middle">0</text>
+
+  <!-- ===== RIGHT case: response at (1,2) ===== -->
+  <text class="h" x="480" y="82" text-anchor="middle">한 칸 오른쪽으로 이동</text>
+  <g>
+    <rect class="c1" x="420" y="92" width="30" height="30"/><rect class="c9" x="450" y="92" width="30" height="30"/><rect class="c1" x="480" y="92" width="30" height="30"/><rect class="c0" x="510" y="92" width="30" height="30"/>
+    <rect class="c1" x="420" y="122" width="30" height="30"/><rect class="c1" x="450" y="122" width="30" height="30"/><rect class="c0" x="480" y="122" width="30" height="30"/><rect class="c0" x="510" y="122" width="30" height="30"/>
+    <rect class="c0" x="420" y="152" width="30" height="30"/><rect class="c0" x="450" y="152" width="30" height="30"/><rect class="c0" x="480" y="152" width="30" height="30"/><rect class="c0" x="510" y="152" width="30" height="30"/>
+    <rect class="c0" x="420" y="182" width="30" height="30"/><rect class="c0" x="450" y="182" width="30" height="30"/><rect class="c0" x="480" y="182" width="30" height="30"/><rect class="c0" x="510" y="182" width="30" height="30"/>
+  </g>
+  <text class="n" x="435" y="111" text-anchor="middle">2</text><text class="nw" x="465" y="111" text-anchor="middle">9</text><text class="n" x="495" y="111" text-anchor="middle">1</text><text class="n" x="525" y="111" text-anchor="middle">0</text>
+  <text class="n" x="435" y="141" text-anchor="middle">1</text><text class="n" x="465" y="141" text-anchor="middle">1</text><text class="n" x="495" y="141" text-anchor="middle">0</text><text class="n" x="525" y="141" text-anchor="middle">0</text>
+  <text class="n" x="435" y="171" text-anchor="middle">0</text><text class="n" x="465" y="171" text-anchor="middle">0</text><text class="n" x="495" y="171" text-anchor="middle">0</text><text class="n" x="525" y="171" text-anchor="middle">0</text>
+  <text class="n" x="435" y="201" text-anchor="middle">0</text><text class="n" x="465" y="201" text-anchor="middle">0</text><text class="n" x="495" y="201" text-anchor="middle">0</text><text class="n" x="525" y="201" text-anchor="middle">0</text>
+  <rect class="win" x="420" y="92" width="60" height="60"/>
+  <line class="arr" x1="552" y1="152" x2="588" y2="152"/>
+  <text class="mut" x="570" y="142" text-anchor="middle">max</text>
+  <g>
+    <rect class="c9" x="600" y="122" width="30" height="30"/><rect class="c0" x="630" y="122" width="30" height="30"/>
+    <rect class="c0" x="600" y="152" width="30" height="30"/><rect class="c0" x="630" y="152" width="30" height="30"/>
+  </g>
+  <text class="nw" x="615" y="141" text-anchor="middle">9</text><text class="n" x="645" y="141" text-anchor="middle">0</text>
+  <text class="n" x="615" y="171" text-anchor="middle">0</text><text class="n" x="645" y="171" text-anchor="middle">0</text>
+
+  <text class="good" x="680" y="141">= 같음</text>
+  <text class="blue" x="120" y="232" text-anchor="middle">파란 창 = 2×2 풀링 영역</text>
+  <text class="sub" x="480" y="232" text-anchor="middle">입력은 달라도 풀링 결과는 동일 → 작은 이동에 둔감해진다</text>
+</svg>

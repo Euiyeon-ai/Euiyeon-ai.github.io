@@ -1,0 +1,352 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 230" width="720" height="230" role="img" aria-labelledby="t3 d3">
+  <title id="t3">희귀 질환 데이터의 클래스 불균형과 정확도 착시</title>
+  <desc id="d3">300장 중 환자가 15장뿐인 예시. 모델이 모든 사진을 정상이라고 답해도 정확도는 95퍼센트지만 환자는 한 명도 찾지 못한다. Recall은 0퍼센트다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:13px;font-weight:700}
+    .sub{fill:#52514e;font-size:12px}
+    .mut{fill:#898781;font-size:11.5px}
+    .panel{fill:none;stroke:#c3c2b7;stroke-width:1;stroke-dasharray:4 4}
+    .tile{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.2}
+    .prod{fill:#d9d7d0;stroke:#9a988f;stroke-width:1.2}
+    .prodD{fill:#a8a69e;stroke:#77756d;stroke-width:1.2}
+    .scr{stroke:#d03b3b;stroke-width:3;stroke-linecap:round}
+    .ok{fill:#eaf3ec;stroke:#3f8f5a;stroke-width:1.5}
+    .badb{fill:#f7ecec;stroke:#d03b3b;stroke-width:1.5}
+    .grey{fill:#eeede8;stroke:#c3c2b7;stroke-width:1.2}
+    .arr{stroke:#898781;stroke-width:1.5;fill:none}
+    .bad{fill:#d03b3b;font-size:12px;font-weight:700}
+    .good{fill:#3f8f5a;font-size:12px;font-weight:700}
+    .dotN{fill:#c3c2b7}
+    .dotP{fill:#d03b3b}
+    .barS{fill:#e3b071}
+    .barP{fill:#3f8f5a}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .mut{fill:#8f8d87}
+      .panel{stroke:#383835}
+      .tile,.grey{fill:#232322;stroke:#383835}
+      .prod{fill:#4a4944;stroke:#6b6a64}
+      .prodD{fill:#2e2d2a;stroke:#4a4944}
+      .ok{fill:#1f2a22;stroke:#3f8f5a}
+      .badb{fill:#2c2220;stroke:#a83030}
+      .dotN{fill:#4a4944}
+    }
+  </style>
+  <rect class="bg" x=".5" y=".5" width="719" height="229" rx="10"/>
+  <text class="ttl" x="24" y="30">희귀 질환 = 환자 사진이 아주 적다 (예: 300장 중 15장)</text>
+  <circle class="dotN" cx="32" cy="60" r="4.5"/>
+  <circle class="dotN" cx="44" cy="60" r="4.5"/>
+  <circle class="dotN" cx="56" cy="60" r="4.5"/>
+  <circle class="dotN" cx="68" cy="60" r="4.5"/>
+  <circle class="dotN" cx="80" cy="60" r="4.5"/>
+  <circle class="dotN" cx="92" cy="60" r="4.5"/>
+  <circle class="dotN" cx="104" cy="60" r="4.5"/>
+  <circle class="dotN" cx="116" cy="60" r="4.5"/>
+  <circle class="dotN" cx="128" cy="60" r="4.5"/>
+  <circle class="dotN" cx="140" cy="60" r="4.5"/>
+  <circle class="dotN" cx="152" cy="60" r="4.5"/>
+  <circle class="dotN" cx="164" cy="60" r="4.5"/>
+  <circle class="dotN" cx="176" cy="60" r="4.5"/>
+  <circle class="dotN" cx="188" cy="60" r="4.5"/>
+  <circle class="dotN" cx="200" cy="60" r="4.5"/>
+  <circle class="dotN" cx="212" cy="60" r="4.5"/>
+  <circle class="dotN" cx="224" cy="60" r="4.5"/>
+  <circle class="dotN" cx="236" cy="60" r="4.5"/>
+  <circle class="dotN" cx="248" cy="60" r="4.5"/>
+  <circle class="dotN" cx="260" cy="60" r="4.5"/>
+  <circle class="dotN" cx="272" cy="60" r="4.5"/>
+  <circle class="dotN" cx="284" cy="60" r="4.5"/>
+  <circle class="dotN" cx="296" cy="60" r="4.5"/>
+  <circle class="dotN" cx="308" cy="60" r="4.5"/>
+  <circle class="dotN" cx="320" cy="60" r="4.5"/>
+  <circle class="dotN" cx="332" cy="60" r="4.5"/>
+  <circle class="dotN" cx="344" cy="60" r="4.5"/>
+  <circle class="dotN" cx="356" cy="60" r="4.5"/>
+  <circle class="dotN" cx="368" cy="60" r="4.5"/>
+  <circle class="dotN" cx="380" cy="60" r="4.5"/>
+  <circle class="dotN" cx="32" cy="73" r="4.5"/>
+  <circle class="dotN" cx="44" cy="73" r="4.5"/>
+  <circle class="dotN" cx="56" cy="73" r="4.5"/>
+  <circle class="dotN" cx="68" cy="73" r="4.5"/>
+  <circle class="dotN" cx="80" cy="73" r="4.5"/>
+  <circle class="dotN" cx="92" cy="73" r="4.5"/>
+  <circle class="dotN" cx="104" cy="73" r="4.5"/>
+  <circle class="dotN" cx="116" cy="73" r="4.5"/>
+  <circle class="dotN" cx="128" cy="73" r="4.5"/>
+  <circle class="dotN" cx="140" cy="73" r="4.5"/>
+  <circle class="dotN" cx="152" cy="73" r="4.5"/>
+  <circle class="dotN" cx="164" cy="73" r="4.5"/>
+  <circle class="dotN" cx="176" cy="73" r="4.5"/>
+  <circle class="dotN" cx="188" cy="73" r="4.5"/>
+  <circle class="dotN" cx="200" cy="73" r="4.5"/>
+  <circle class="dotN" cx="212" cy="73" r="4.5"/>
+  <circle class="dotN" cx="224" cy="73" r="4.5"/>
+  <circle class="dotN" cx="236" cy="73" r="4.5"/>
+  <circle class="dotN" cx="248" cy="73" r="4.5"/>
+  <circle class="dotN" cx="260" cy="73" r="4.5"/>
+  <circle class="dotN" cx="272" cy="73" r="4.5"/>
+  <circle class="dotN" cx="284" cy="73" r="4.5"/>
+  <circle class="dotN" cx="296" cy="73" r="4.5"/>
+  <circle class="dotN" cx="308" cy="73" r="4.5"/>
+  <circle class="dotN" cx="320" cy="73" r="4.5"/>
+  <circle class="dotN" cx="332" cy="73" r="4.5"/>
+  <circle class="dotN" cx="344" cy="73" r="4.5"/>
+  <circle class="dotN" cx="356" cy="73" r="4.5"/>
+  <circle class="dotN" cx="368" cy="73" r="4.5"/>
+  <circle class="dotN" cx="380" cy="73" r="4.5"/>
+  <circle class="dotN" cx="32" cy="86" r="4.5"/>
+  <circle class="dotN" cx="44" cy="86" r="4.5"/>
+  <circle class="dotN" cx="56" cy="86" r="4.5"/>
+  <circle class="dotN" cx="68" cy="86" r="4.5"/>
+  <circle class="dotN" cx="80" cy="86" r="4.5"/>
+  <circle class="dotN" cx="92" cy="86" r="4.5"/>
+  <circle class="dotN" cx="104" cy="86" r="4.5"/>
+  <circle class="dotN" cx="116" cy="86" r="4.5"/>
+  <circle class="dotN" cx="128" cy="86" r="4.5"/>
+  <circle class="dotN" cx="140" cy="86" r="4.5"/>
+  <circle class="dotN" cx="152" cy="86" r="4.5"/>
+  <circle class="dotN" cx="164" cy="86" r="4.5"/>
+  <circle class="dotN" cx="176" cy="86" r="4.5"/>
+  <circle class="dotN" cx="188" cy="86" r="4.5"/>
+  <circle class="dotN" cx="200" cy="86" r="4.5"/>
+  <circle class="dotN" cx="212" cy="86" r="4.5"/>
+  <circle class="dotN" cx="224" cy="86" r="4.5"/>
+  <circle class="dotN" cx="236" cy="86" r="4.5"/>
+  <circle class="dotN" cx="248" cy="86" r="4.5"/>
+  <circle class="dotN" cx="260" cy="86" r="4.5"/>
+  <circle class="dotN" cx="272" cy="86" r="4.5"/>
+  <circle class="dotN" cx="284" cy="86" r="4.5"/>
+  <circle class="dotN" cx="296" cy="86" r="4.5"/>
+  <circle class="dotN" cx="308" cy="86" r="4.5"/>
+  <circle class="dotN" cx="320" cy="86" r="4.5"/>
+  <circle class="dotN" cx="332" cy="86" r="4.5"/>
+  <circle class="dotN" cx="344" cy="86" r="4.5"/>
+  <circle class="dotN" cx="356" cy="86" r="4.5"/>
+  <circle class="dotN" cx="368" cy="86" r="4.5"/>
+  <circle class="dotN" cx="380" cy="86" r="4.5"/>
+  <circle class="dotN" cx="32" cy="99" r="4.5"/>
+  <circle class="dotN" cx="44" cy="99" r="4.5"/>
+  <circle class="dotN" cx="56" cy="99" r="4.5"/>
+  <circle class="dotN" cx="68" cy="99" r="4.5"/>
+  <circle class="dotN" cx="80" cy="99" r="4.5"/>
+  <circle class="dotN" cx="92" cy="99" r="4.5"/>
+  <circle class="dotN" cx="104" cy="99" r="4.5"/>
+  <circle class="dotN" cx="116" cy="99" r="4.5"/>
+  <circle class="dotN" cx="128" cy="99" r="4.5"/>
+  <circle class="dotN" cx="140" cy="99" r="4.5"/>
+  <circle class="dotN" cx="152" cy="99" r="4.5"/>
+  <circle class="dotN" cx="164" cy="99" r="4.5"/>
+  <circle class="dotN" cx="176" cy="99" r="4.5"/>
+  <circle class="dotN" cx="188" cy="99" r="4.5"/>
+  <circle class="dotN" cx="200" cy="99" r="4.5"/>
+  <circle class="dotN" cx="212" cy="99" r="4.5"/>
+  <circle class="dotN" cx="224" cy="99" r="4.5"/>
+  <circle class="dotN" cx="236" cy="99" r="4.5"/>
+  <circle class="dotN" cx="248" cy="99" r="4.5"/>
+  <circle class="dotN" cx="260" cy="99" r="4.5"/>
+  <circle class="dotN" cx="272" cy="99" r="4.5"/>
+  <circle class="dotN" cx="284" cy="99" r="4.5"/>
+  <circle class="dotN" cx="296" cy="99" r="4.5"/>
+  <circle class="dotN" cx="308" cy="99" r="4.5"/>
+  <circle class="dotN" cx="320" cy="99" r="4.5"/>
+  <circle class="dotN" cx="332" cy="99" r="4.5"/>
+  <circle class="dotN" cx="344" cy="99" r="4.5"/>
+  <circle class="dotN" cx="356" cy="99" r="4.5"/>
+  <circle class="dotN" cx="368" cy="99" r="4.5"/>
+  <circle class="dotN" cx="380" cy="99" r="4.5"/>
+  <circle class="dotN" cx="32" cy="112" r="4.5"/>
+  <circle class="dotN" cx="44" cy="112" r="4.5"/>
+  <circle class="dotN" cx="56" cy="112" r="4.5"/>
+  <circle class="dotN" cx="68" cy="112" r="4.5"/>
+  <circle class="dotN" cx="80" cy="112" r="4.5"/>
+  <circle class="dotN" cx="92" cy="112" r="4.5"/>
+  <circle class="dotN" cx="104" cy="112" r="4.5"/>
+  <circle class="dotN" cx="116" cy="112" r="4.5"/>
+  <circle class="dotN" cx="128" cy="112" r="4.5"/>
+  <circle class="dotN" cx="140" cy="112" r="4.5"/>
+  <circle class="dotN" cx="152" cy="112" r="4.5"/>
+  <circle class="dotN" cx="164" cy="112" r="4.5"/>
+  <circle class="dotN" cx="176" cy="112" r="4.5"/>
+  <circle class="dotN" cx="188" cy="112" r="4.5"/>
+  <circle class="dotN" cx="200" cy="112" r="4.5"/>
+  <circle class="dotN" cx="212" cy="112" r="4.5"/>
+  <circle class="dotN" cx="224" cy="112" r="4.5"/>
+  <circle class="dotN" cx="236" cy="112" r="4.5"/>
+  <circle class="dotN" cx="248" cy="112" r="4.5"/>
+  <circle class="dotN" cx="260" cy="112" r="4.5"/>
+  <circle class="dotN" cx="272" cy="112" r="4.5"/>
+  <circle class="dotN" cx="284" cy="112" r="4.5"/>
+  <circle class="dotN" cx="296" cy="112" r="4.5"/>
+  <circle class="dotN" cx="308" cy="112" r="4.5"/>
+  <circle class="dotN" cx="320" cy="112" r="4.5"/>
+  <circle class="dotN" cx="332" cy="112" r="4.5"/>
+  <circle class="dotN" cx="344" cy="112" r="4.5"/>
+  <circle class="dotN" cx="356" cy="112" r="4.5"/>
+  <circle class="dotN" cx="368" cy="112" r="4.5"/>
+  <circle class="dotN" cx="380" cy="112" r="4.5"/>
+  <circle class="dotN" cx="32" cy="125" r="4.5"/>
+  <circle class="dotN" cx="44" cy="125" r="4.5"/>
+  <circle class="dotN" cx="56" cy="125" r="4.5"/>
+  <circle class="dotN" cx="68" cy="125" r="4.5"/>
+  <circle class="dotN" cx="80" cy="125" r="4.5"/>
+  <circle class="dotN" cx="92" cy="125" r="4.5"/>
+  <circle class="dotN" cx="104" cy="125" r="4.5"/>
+  <circle class="dotN" cx="116" cy="125" r="4.5"/>
+  <circle class="dotN" cx="128" cy="125" r="4.5"/>
+  <circle class="dotN" cx="140" cy="125" r="4.5"/>
+  <circle class="dotN" cx="152" cy="125" r="4.5"/>
+  <circle class="dotN" cx="164" cy="125" r="4.5"/>
+  <circle class="dotN" cx="176" cy="125" r="4.5"/>
+  <circle class="dotN" cx="188" cy="125" r="4.5"/>
+  <circle class="dotN" cx="200" cy="125" r="4.5"/>
+  <circle class="dotN" cx="212" cy="125" r="4.5"/>
+  <circle class="dotN" cx="224" cy="125" r="4.5"/>
+  <circle class="dotN" cx="236" cy="125" r="4.5"/>
+  <circle class="dotN" cx="248" cy="125" r="4.5"/>
+  <circle class="dotN" cx="260" cy="125" r="4.5"/>
+  <circle class="dotN" cx="272" cy="125" r="4.5"/>
+  <circle class="dotN" cx="284" cy="125" r="4.5"/>
+  <circle class="dotN" cx="296" cy="125" r="4.5"/>
+  <circle class="dotN" cx="308" cy="125" r="4.5"/>
+  <circle class="dotN" cx="320" cy="125" r="4.5"/>
+  <circle class="dotN" cx="332" cy="125" r="4.5"/>
+  <circle class="dotN" cx="344" cy="125" r="4.5"/>
+  <circle class="dotN" cx="356" cy="125" r="4.5"/>
+  <circle class="dotN" cx="368" cy="125" r="4.5"/>
+  <circle class="dotN" cx="380" cy="125" r="4.5"/>
+  <circle class="dotN" cx="32" cy="138" r="4.5"/>
+  <circle class="dotN" cx="44" cy="138" r="4.5"/>
+  <circle class="dotN" cx="56" cy="138" r="4.5"/>
+  <circle class="dotN" cx="68" cy="138" r="4.5"/>
+  <circle class="dotN" cx="80" cy="138" r="4.5"/>
+  <circle class="dotN" cx="92" cy="138" r="4.5"/>
+  <circle class="dotN" cx="104" cy="138" r="4.5"/>
+  <circle class="dotN" cx="116" cy="138" r="4.5"/>
+  <circle class="dotN" cx="128" cy="138" r="4.5"/>
+  <circle class="dotN" cx="140" cy="138" r="4.5"/>
+  <circle class="dotN" cx="152" cy="138" r="4.5"/>
+  <circle class="dotN" cx="164" cy="138" r="4.5"/>
+  <circle class="dotN" cx="176" cy="138" r="4.5"/>
+  <circle class="dotN" cx="188" cy="138" r="4.5"/>
+  <circle class="dotN" cx="200" cy="138" r="4.5"/>
+  <circle class="dotN" cx="212" cy="138" r="4.5"/>
+  <circle class="dotN" cx="224" cy="138" r="4.5"/>
+  <circle class="dotN" cx="236" cy="138" r="4.5"/>
+  <circle class="dotN" cx="248" cy="138" r="4.5"/>
+  <circle class="dotN" cx="260" cy="138" r="4.5"/>
+  <circle class="dotN" cx="272" cy="138" r="4.5"/>
+  <circle class="dotN" cx="284" cy="138" r="4.5"/>
+  <circle class="dotN" cx="296" cy="138" r="4.5"/>
+  <circle class="dotN" cx="308" cy="138" r="4.5"/>
+  <circle class="dotN" cx="320" cy="138" r="4.5"/>
+  <circle class="dotN" cx="332" cy="138" r="4.5"/>
+  <circle class="dotN" cx="344" cy="138" r="4.5"/>
+  <circle class="dotN" cx="356" cy="138" r="4.5"/>
+  <circle class="dotN" cx="368" cy="138" r="4.5"/>
+  <circle class="dotN" cx="380" cy="138" r="4.5"/>
+  <circle class="dotN" cx="32" cy="151" r="4.5"/>
+  <circle class="dotN" cx="44" cy="151" r="4.5"/>
+  <circle class="dotN" cx="56" cy="151" r="4.5"/>
+  <circle class="dotN" cx="68" cy="151" r="4.5"/>
+  <circle class="dotN" cx="80" cy="151" r="4.5"/>
+  <circle class="dotN" cx="92" cy="151" r="4.5"/>
+  <circle class="dotN" cx="104" cy="151" r="4.5"/>
+  <circle class="dotN" cx="116" cy="151" r="4.5"/>
+  <circle class="dotN" cx="128" cy="151" r="4.5"/>
+  <circle class="dotN" cx="140" cy="151" r="4.5"/>
+  <circle class="dotN" cx="152" cy="151" r="4.5"/>
+  <circle class="dotN" cx="164" cy="151" r="4.5"/>
+  <circle class="dotN" cx="176" cy="151" r="4.5"/>
+  <circle class="dotN" cx="188" cy="151" r="4.5"/>
+  <circle class="dotN" cx="200" cy="151" r="4.5"/>
+  <circle class="dotN" cx="212" cy="151" r="4.5"/>
+  <circle class="dotN" cx="224" cy="151" r="4.5"/>
+  <circle class="dotN" cx="236" cy="151" r="4.5"/>
+  <circle class="dotN" cx="248" cy="151" r="4.5"/>
+  <circle class="dotN" cx="260" cy="151" r="4.5"/>
+  <circle class="dotN" cx="272" cy="151" r="4.5"/>
+  <circle class="dotN" cx="284" cy="151" r="4.5"/>
+  <circle class="dotN" cx="296" cy="151" r="4.5"/>
+  <circle class="dotN" cx="308" cy="151" r="4.5"/>
+  <circle class="dotN" cx="320" cy="151" r="4.5"/>
+  <circle class="dotN" cx="332" cy="151" r="4.5"/>
+  <circle class="dotN" cx="344" cy="151" r="4.5"/>
+  <circle class="dotN" cx="356" cy="151" r="4.5"/>
+  <circle class="dotN" cx="368" cy="151" r="4.5"/>
+  <circle class="dotN" cx="380" cy="151" r="4.5"/>
+  <circle class="dotN" cx="32" cy="164" r="4.5"/>
+  <circle class="dotN" cx="44" cy="164" r="4.5"/>
+  <circle class="dotN" cx="56" cy="164" r="4.5"/>
+  <circle class="dotN" cx="68" cy="164" r="4.5"/>
+  <circle class="dotN" cx="80" cy="164" r="4.5"/>
+  <circle class="dotN" cx="92" cy="164" r="4.5"/>
+  <circle class="dotN" cx="104" cy="164" r="4.5"/>
+  <circle class="dotN" cx="116" cy="164" r="4.5"/>
+  <circle class="dotN" cx="128" cy="164" r="4.5"/>
+  <circle class="dotN" cx="140" cy="164" r="4.5"/>
+  <circle class="dotN" cx="152" cy="164" r="4.5"/>
+  <circle class="dotN" cx="164" cy="164" r="4.5"/>
+  <circle class="dotN" cx="176" cy="164" r="4.5"/>
+  <circle class="dotN" cx="188" cy="164" r="4.5"/>
+  <circle class="dotN" cx="200" cy="164" r="4.5"/>
+  <circle class="dotN" cx="212" cy="164" r="4.5"/>
+  <circle class="dotN" cx="224" cy="164" r="4.5"/>
+  <circle class="dotN" cx="236" cy="164" r="4.5"/>
+  <circle class="dotN" cx="248" cy="164" r="4.5"/>
+  <circle class="dotN" cx="260" cy="164" r="4.5"/>
+  <circle class="dotN" cx="272" cy="164" r="4.5"/>
+  <circle class="dotN" cx="284" cy="164" r="4.5"/>
+  <circle class="dotN" cx="296" cy="164" r="4.5"/>
+  <circle class="dotN" cx="308" cy="164" r="4.5"/>
+  <circle class="dotN" cx="320" cy="164" r="4.5"/>
+  <circle class="dotN" cx="332" cy="164" r="4.5"/>
+  <circle class="dotN" cx="344" cy="164" r="4.5"/>
+  <circle class="dotN" cx="356" cy="164" r="4.5"/>
+  <circle class="dotN" cx="368" cy="164" r="4.5"/>
+  <circle class="dotN" cx="380" cy="164" r="4.5"/>
+  <circle class="dotN" cx="32" cy="177" r="4.5"/>
+  <circle class="dotN" cx="44" cy="177" r="4.5"/>
+  <circle class="dotN" cx="56" cy="177" r="4.5"/>
+  <circle class="dotN" cx="68" cy="177" r="4.5"/>
+  <circle class="dotN" cx="80" cy="177" r="4.5"/>
+  <circle class="dotN" cx="92" cy="177" r="4.5"/>
+  <circle class="dotN" cx="104" cy="177" r="4.5"/>
+  <circle class="dotN" cx="116" cy="177" r="4.5"/>
+  <circle class="dotN" cx="128" cy="177" r="4.5"/>
+  <circle class="dotN" cx="140" cy="177" r="4.5"/>
+  <circle class="dotN" cx="152" cy="177" r="4.5"/>
+  <circle class="dotN" cx="164" cy="177" r="4.5"/>
+  <circle class="dotN" cx="176" cy="177" r="4.5"/>
+  <circle class="dotN" cx="188" cy="177" r="4.5"/>
+  <circle class="dotN" cx="200" cy="177" r="4.5"/>
+  <circle class="dotP" cx="212" cy="177" r="4.5"/>
+  <circle class="dotP" cx="224" cy="177" r="4.5"/>
+  <circle class="dotP" cx="236" cy="177" r="4.5"/>
+  <circle class="dotP" cx="248" cy="177" r="4.5"/>
+  <circle class="dotP" cx="260" cy="177" r="4.5"/>
+  <circle class="dotP" cx="272" cy="177" r="4.5"/>
+  <circle class="dotP" cx="284" cy="177" r="4.5"/>
+  <circle class="dotP" cx="296" cy="177" r="4.5"/>
+  <circle class="dotP" cx="308" cy="177" r="4.5"/>
+  <circle class="dotP" cx="320" cy="177" r="4.5"/>
+  <circle class="dotP" cx="332" cy="177" r="4.5"/>
+  <circle class="dotP" cx="344" cy="177" r="4.5"/>
+  <circle class="dotP" cx="356" cy="177" r="4.5"/>
+  <circle class="dotP" cx="368" cy="177" r="4.5"/>
+  <circle class="dotP" cx="380" cy="177" r="4.5"/>
+  <circle class="dotN" cx="32" cy="200" r="4.5"/><text class="sub" x="42" y="204">정상 285장</text>
+  <circle class="dotP" cx="132" cy="200" r="4.5"/><text class="sub" x="142" y="204">환자 15장</text>
+  <rect class="panel" x="408" y="50" width="288" height="160" rx="8"/>
+  <text class="h" x="424" y="74">모델이 전부 "정상"이라고 찍으면?</text>
+  <text class="sub" x="424" y="104">정확도</text>
+  <text class="good" x="600" y="104">95%</text>
+  <text class="sub" x="424" y="130">찾아낸 환자 (Recall)</text>
+  <text class="bad" x="600" y="130">0명 = 0%</text>
+  <text class="bad" x="424" y="168">숫자는 좋아 보이지만</text>
+  <text class="bad" x="424" y="186">쓸모없는 모델</text>
+</svg>

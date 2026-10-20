@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 250" width="720" height="250" role="img" aria-labelledby="t2 d2">
+  <title id="t2">CCTV 프레임에서 상품 개수와 위치를 얻는 과정</title>
+  <desc id="d2">CCTV 프레임을 객체 인식 모델에 넣으면 수천 개의 후보 박스가 나오고, NMS로 겹친 후보를 하나로 정리한 뒤, 박스 중심이 어느 선반 칸에 있는지로 칸별 상품 개수와 빈 칸을 집계한다.</desc>
+  <style>
+    text{font-family:system-ui,-apple-system,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+    .bg{fill:#fcfcfb;stroke:rgba(11,11,11,.10)}
+    .ttl{fill:#0b0b0b;font-size:16px;font-weight:700}
+    .h{fill:#0b0b0b;font-size:13.5px;font-weight:700}
+    .sub{fill:#52514e;font-size:12px}
+    .mut{fill:#898781;font-size:11.5px}
+    .panel{fill:none;stroke:#c3c2b7;stroke-width:1;stroke-dasharray:4 4}
+    .shelf{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.2}
+    .board{stroke:#9a988f;stroke-width:3;stroke-linecap:round}
+    .gap{fill:none;stroke:#c3c2b7;stroke-width:1.2;stroke-dasharray:3 3}
+    .cola{fill:#c8433b}.cider{fill:#3f8f5a}.water{fill:#4a7fc1}
+    .cap{fill:#ffffff;opacity:.55}
+    .bxC{fill:none;stroke:#c8433b;stroke-width:2}
+    .bxS{fill:none;stroke:#3f8f5a;stroke-width:2}
+    .bxW{fill:none;stroke:#4a7fc1;stroke-width:2}
+    .out{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1}
+    .outT{fill:#0b0b0b;font-size:12.5px;font-weight:600}
+    .bad{fill:#d03b3b;font-size:12px;font-weight:700}
+    .good{fill:#3f8f5a;font-size:12px;font-weight:700}
+    .num{font-variant-numeric:tabular-nums}
+    .stage{fill:#f4f4f1;stroke:#c3c2b7;stroke-width:1.2}
+    .arr{stroke:#898781;stroke-width:1.5;fill:none}
+    .arrh{fill:#898781}
+    .dot{fill:#c3c2b7}
+    .cand{fill:none;stroke:#e3b071;stroke-width:1}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#1a1a19;stroke:rgba(255,255,255,.10)}
+      .ttl,.h,.outT{fill:#ffffff}
+      .sub{fill:#c3c2b7}
+      .mut{fill:#8f8d87}
+      .panel{stroke:#383835}
+      .shelf,.out,.stage{fill:#232322;stroke:#383835}
+      .board{stroke:#6b6a64}
+      .gap{stroke:#55534e}
+      .dot{fill:#4a4944}
+      .cap{fill:#000000;opacity:.25}
+    }
+  </style>
+  <rect class="bg" x=".5" y=".5" width="719" height="249" rx="10"/>
+  <text class="ttl" x="24" y="30">CCTV 한 장면 → "무엇이 · 몇 개 · 어디에"</text>
+  <text class="mut" x="24" y="50">모델이 하는 일은 ②까지, 개수와 칸은 ③④에서 박스를 세고 나눠서 얻는다</text>
+  <g transform="translate(24,70)">
+    <rect class="stage" x="0" y="0" width="124" height="150" rx="8"/>
+    <text class="h" x="12" y="24"><tspan class="num">①</tspan> CCTV 프레임</text>
+    <rect class="shelf" x="12" y="36" width="100" height="66" rx="4"/>
+    <line class="board" x1="18" y1="66" x2="106" y2="66"/><line class="board" x1="18" y1="96" x2="106" y2="96"/>
+    <rect class="cola" x="22" y="48" width="12" height="16" rx="2"/><rect class="cola" x="38" y="48" width="12" height="16" rx="2"/>
+    <rect class="cider" x="74" y="48" width="12" height="16" rx="2"/>
+    <rect class="water" x="22" y="77" width="12" height="17" rx="3"/><rect class="water" x="38" y="77" width="12" height="17" rx="3"/><rect class="water" x="54" y="77" width="12" height="17" rx="3"/>
+    <text class="sub" x="12" y="124">진열대 한 장면</text>
+    <text class="mut" x="12" y="140">필요하면 몇 초마다</text>
+  </g>
+  <line class="arr" x1="150" y1="145" x2="162" y2="145"/><path class="arrh" d="M162,140 L168,145 L162,150 Z"/>
+  <g transform="translate(172,70)">
+    <rect class="stage" x="0" y="0" width="124" height="150" rx="8"/>
+    <text class="h" x="12" y="24"><tspan class="num">②</tspan> 탐지 모델</text>
+    <circle class="dot" cx="20" cy="42" r="2"/><circle class="dot" cx="20" cy="53" r="2"/><circle class="dot" cx="20" cy="64" r="2"/><circle class="dot" cx="20" cy="75" r="2"/><circle class="dot" cx="20" cy="86" r="2"/><circle class="dot" cx="20" cy="97" r="2"/><circle class="dot" cx="32" cy="42" r="2"/><circle class="dot" cx="32" cy="53" r="2"/><circle class="dot" cx="32" cy="64" r="2"/><circle class="dot" cx="32" cy="75" r="2"/><circle class="dot" cx="32" cy="86" r="2"/><circle class="dot" cx="32" cy="97" r="2"/><circle class="dot" cx="44" cy="42" r="2"/><circle class="dot" cx="44" cy="53" r="2"/><circle class="dot" cx="44" cy="64" r="2"/><circle class="dot" cx="44" cy="75" r="2"/><circle class="dot" cx="44" cy="86" r="2"/><circle class="dot" cx="44" cy="97" r="2"/><circle class="dot" cx="56" cy="42" r="2"/><circle class="dot" cx="56" cy="53" r="2"/><circle class="dot" cx="56" cy="64" r="2"/><circle class="dot" cx="56" cy="75" r="2"/><circle class="dot" cx="56" cy="86" r="2"/><circle class="dot" cx="56" cy="97" r="2"/><circle class="dot" cx="68" cy="42" r="2"/><circle class="dot" cx="68" cy="53" r="2"/><circle class="dot" cx="68" cy="64" r="2"/><circle class="dot" cx="68" cy="75" r="2"/><circle class="dot" cx="68" cy="86" r="2"/><circle class="dot" cx="68" cy="97" r="2"/><circle class="dot" cx="80" cy="42" r="2"/><circle class="dot" cx="80" cy="53" r="2"/><circle class="dot" cx="80" cy="64" r="2"/><circle class="dot" cx="80" cy="75" r="2"/><circle class="dot" cx="80" cy="86" r="2"/><circle class="dot" cx="80" cy="97" r="2"/><circle class="dot" cx="92" cy="42" r="2"/><circle class="dot" cx="92" cy="53" r="2"/><circle class="dot" cx="92" cy="64" r="2"/><circle class="dot" cx="92" cy="75" r="2"/><circle class="dot" cx="92" cy="86" r="2"/><circle class="dot" cx="92" cy="97" r="2"/><circle class="dot" cx="104" cy="42" r="2"/><circle class="dot" cx="104" cy="53" r="2"/><circle class="dot" cx="104" cy="64" r="2"/><circle class="dot" cx="104" cy="75" r="2"/><circle class="dot" cx="104" cy="86" r="2"/><circle class="dot" cx="104" cy="97" r="2"/><circle class="dot" cx="116" cy="42" r="2"/><circle class="dot" cx="116" cy="53" r="2"/><circle class="dot" cx="116" cy="64" r="2"/><circle class="dot" cx="116" cy="75" r="2"/><circle class="dot" cx="116" cy="86" r="2"/><circle class="dot" cx="116" cy="97" r="2"/><rect class="cand" x="30" y="40" width="22" height="26"/><rect class="cand" x="34" y="44" width="24" height="24"/><rect class="cand" x="27" y="47" width="20" height="22"/><rect class="cand" x="72" y="62" width="26" height="30"/>
+    <text class="sub" x="12" y="124">후보 박스 수천 개</text>
+    <text class="mut" x="12" y="140">위치마다 무엇·어디</text>
+  </g>
+  <line class="arr" x1="298" y1="145" x2="310" y2="145"/><path class="arrh" d="M310,140 L316,145 L310,150 Z"/>
+  <g transform="translate(320,70)">
+    <rect class="stage" x="0" y="0" width="124" height="150" rx="8"/>
+    <text class="h" x="12" y="24"><tspan class="num">③</tspan> NMS 정리</text>
+    <rect class="cand" x="18" y="44" width="30" height="34"/><rect class="cand" x="22" y="48" width="30" height="32"/><rect class="cand" x="15" y="50" width="28" height="30"/>
+    <text class="mut" x="56" y="68">→</text>
+    <rect class="bxC" x="74" y="46" width="30" height="34" rx="2"/>
+    <text class="sub" x="12" y="124">겹친 후보 → 1개</text>
+    <text class="mut" x="12" y="140">점수 낮은 후보도 제거</text>
+  </g>
+  <line class="arr" x1="446" y1="145" x2="458" y2="145"/><path class="arrh" d="M458,140 L464,145 L458,150 Z"/>
+  <g transform="translate(468,70)">
+    <rect class="stage" x="0" y="0" width="124" height="150" rx="8"/>
+    <text class="h" x="12" y="24"><tspan class="num">④</tspan> 칸별 집계</text>
+    <rect class="out" x="12" y="34" width="100" height="74" rx="4"/>
+    <text class="sub num" x="20" y="51">1단 콜라 2</text>
+    <text class="sub num" x="20" y="66">1단 사이다 1</text>
+    <text class="sub num" x="20" y="81">2단 생수 3</text>
+    <text class="bad num" x="20" y="98" style="font-size:11px">빈 칸 4 → 보충</text>
+    <text class="sub" x="12" y="124">박스 중심 → 선반 칸</text>
+    <text class="mut" x="12" y="140">상품별 개수 · 빈 칸</text>
+  </g>
+  <g transform="translate(616,70)">
+    <rect class="out" x="0" y="0" width="84" height="150" rx="8"/>
+    <text class="h" x="10" y="24">결과</text>
+    <text class="sub" x="10" y="52">재고 수량</text>
+    <text class="sub" x="10" y="72">품절 칸 위치</text>
+    <text class="sub" x="10" y="92">시간별 변화</text>
+    <text class="good" x="10" y="124">보충 알림</text>
+  </g>
+  <line class="arr" x1="594" y1="145" x2="606" y2="145"/><path class="arrh" d="M606,140 L612,145 L606,150 Z"/>
+</svg>
