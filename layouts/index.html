@@ -1,18 +1,30 @@
 {{- define "main" }}
 {{- partial "home_info.html" . }}
 
-{{- /* 홈은 '위클리페이퍼' 태그가 붙은 글과 나머지 글을 나눠서 보여준다 */}}
+{{- /* 홈은 '코드잇(AI 엔지니어)' 아래에 위클리페이퍼·스터디 발표 태그 글을 나눠 보여주고, 나머지는 따로 모은다 */}}
 {{- $all := where site.RegularPages "Type" "in" site.Params.mainSections }}
 {{- $weekly := where $all "Params.tags" "intersect" (slice "위클리페이퍼") }}
-{{- $others := complement $weekly $all }}
+{{- $study := where $all "Params.tags" "intersect" (slice "스터디 발표") }}
+{{- $others := complement $weekly $study $all }}
 
-{{- with $weekly }}
-<h2 class="home-section-title">위클리페이퍼 <span class="home-section-count">{{ len . }}</span></h2>
-{{- range . }}{{ partial "post_entry.html" . }}{{ end }}
+{{- if or $weekly $study }}
+<section class="home-group">
+  <h2 class="home-group-title">코드잇(AI 엔지니어)</h2>
+  {{- with $weekly }}
+  <h3 class="home-section-title">위클리페이퍼 <span class="home-section-count">{{ len . }}</span></h3>
+  {{- range . }}{{ partial "post_entry.html" . }}{{ end }}
+  {{- end }}
+  {{- with $study }}
+  <h3 class="home-section-title">스터디 발표 <span class="home-section-count">{{ len . }}</span></h3>
+  {{- range . }}{{ partial "post_entry.html" . }}{{ end }}
+  {{- end }}
+</section>
 {{- end }}
 
 {{- with $others }}
-<h2 class="home-section-title">다른 글 <span class="home-section-count">{{ len . }}</span></h2>
-{{- range . }}{{ partial "post_entry.html" . }}{{ end }}
+<section class="home-group">
+  <h2 class="home-group-title">다른 글 <span class="home-section-count">{{ len . }}</span></h2>
+  {{- range . }}{{ partial "post_entry.html" . }}{{ end }}
+</section>
 {{- end }}
 {{- end }}
