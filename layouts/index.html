@@ -12,11 +12,11 @@
   <h2 class="home-group-title">코드잇(AI 엔지니어)</h2>
   {{- with $weekly }}
   <h3 class="home-section-title">위클리페이퍼 <span class="home-section-count">{{ len . }}</span></h3>
-  {{- range . }}{{ partial "post_entry.html" . }}{{ end }}
+  <div class="doc-list">{{ range . }}{{ partial "post_entry.html" . }}{{ end }}</div>
   {{- end }}
   {{- with $study }}
   <h3 class="home-section-title">스터디 발표 <span class="home-section-count">{{ len . }}</span></h3>
-  {{- range . }}{{ partial "post_entry.html" . }}{{ end }}
+  <div class="doc-list">{{ range . }}{{ partial "post_entry.html" . }}{{ end }}</div>
   {{- end }}
 </section>
 {{- end }}
@@ -24,7 +24,7 @@
 {{- with $others }}
 <section class="home-group">
   <h2 class="home-group-title">다른 글 <span class="home-section-count">{{ len . }}</span></h2>
-  {{- range . }}{{ partial "post_entry.html" . }}{{ end }}
+  <div class="doc-list">{{ range . }}{{ partial "post_entry.html" . }}{{ end }}</div>
 </section>
 {{- end }}
 {{- end }}

@@ -29,7 +29,7 @@ summaryLength = 40
 [params]
   env = "production"
   title = "Euiyeon 블로그"
-  description = "블로그 설명 자리"
+  description = "코드잇 AI 엔지니어 과정에서 공부한 내용을 기록하는 블로그"
   author = "Euiyeon"
   defaultTheme = "auto"          # auto | light | dark
   DateFormat = "2006-01-02"
@@ -48,8 +48,14 @@ summaryLength = 40
   TocOpen = false
 
   [params.homeInfoParams]
-    Title = "안녕하세요 👋"
-    Content = "여기에 자기소개 한두 줄."
+    Title = "안녕하세요, Euiyeon입니다 👋"
+    Content = """
+코드잇 AI 엔지니어 과정에서 **공부한 내용을 기록**하는 공간입니다.
+
+- 📝 **위클리페이퍼** — 매주 받은 질문에 답하며 정리한 글
+- 🎤 **스터디 발표** — 스터디에서 발표한 내용을 다시 풀어 쓴 글
+- 🔎 **태그 · 검색** — 주제별로 찾아보기
+"""
 
   [[params.socialIcons]]
     name = "github"
@@ -69,10 +75,21 @@ summaryLength = 40
     keys = ["title", "permalink", "summary", "content"]
 
 [[menu.main]]
-  identifier = "posts"
-  name = "글"
-  url = "/posts/"
+  identifier = "codeit"
+  name = "코드잇(AI 엔지니어)"
   weight = 10
+
+[[menu.main]]
+  parent = "codeit"
+  name = "위클리페이퍼"
+  pageRef = "/tags/위클리페이퍼"
+  weight = 1
+
+[[menu.main]]
+  parent = "codeit"
+  name = "스터디 발표"
+  pageRef = "/tags/스터디 발표"
+  weight = 2
 
 [[menu.main]]
   identifier = "archives"

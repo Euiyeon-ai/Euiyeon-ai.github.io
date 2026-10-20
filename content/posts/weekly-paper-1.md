@@ -3,6 +3,7 @@ title = '위클리페이퍼1'
 date = 2026-08-12T17:30:00+09:00
 draft = false
 slug = 'weekly-paper-1'
+description = '느린 반복문 진단, 치우친 분포에서 평균의 함정, 두 팀 데이터 병합 순서. 세 질문에 답하면서 "왜 이 순서인가"를 그림으로 정리했다.'
 tags = ['부트캠프', '위클리페이퍼', 'pandas', 'NumPy', '통계', '데이터전처리']
 categories = ['개발']
 +++
